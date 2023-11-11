@@ -160,7 +160,7 @@ class ImageConstant {
   static String imgUserPrimary55x55 = '$imagePath/img_user_primary_55x55.svg';
 
   // Common images
-  static String imgHiDocLogo42x115 = '$imagePath/img_hi_doc_logo_42x115.png';
+  static String imgHiDocLogo42x115 = '$imagePath/daycare_discover_logo.png';
 
   static String imgMail = '$imagePath/img_mail.svg';
 

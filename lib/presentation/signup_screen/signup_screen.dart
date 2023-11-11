@@ -71,8 +71,8 @@ class SignupScreen extends StatelessWidget {
     return Column(children: [
       CustomImageView(
           imagePath: ImageConstant.imgHiDocLogo42x115,
-          height: 42.v,
-          width: 115.h),
+          height: 210.v,
+          width: 100.h),
       SizedBox(height: 27.v),
       Text("msg_let_s_get_started".tr,
           style: CustomTextStyles.titleMediumOnPrimaryContainer),
