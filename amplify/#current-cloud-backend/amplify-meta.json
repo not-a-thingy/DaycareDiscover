@@ -42,7 +42,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-daycarediscover-dev-94310-deployment/amplify-cfn-templates/auth/daycarediscover25b39bc0-cloudformation-template.json",
         "logicalId": "authdaycarediscover25b39bc0"
       },
-      "lastPushTimeStamp": "2023-11-20T01:47:47.878Z",
+      "lastPushTimeStamp": "2023-11-20T02:39:22.429Z",
       "output": {
         "UserPoolId": "ap-southeast-2_hpRwtzqvi",
         "AppClientIDWeb": "1ku38pr88k8vt7cbblvlemqpa8",
@@ -53,6 +53,51 @@
         "UserPoolName": "daycarediscover25b39bc0_userpool_25b39bc0"
       },
       "lastPushDirHash": "VZaEy/A5rPCX2YRN63kiupoEW0E="
+    }
+  },
+  "api": {
+    "daycarediscover": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "daycarediscover25b39bc0",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authdaycarediscover25b39bc0"
+              }
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "56vwmneb7ngirdxlc3obl6bdzm",
+        "GraphQLAPIEndpointOutput": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-wztxxufejfejteuwucmjq3aznq"
+      },
+      "lastPushTimeStamp": "2023-11-20T02:39:23.839Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-daycarediscover-dev-94310-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apidaycarediscover"
+      },
+      "lastPushDirHash": "envmssabu3W7DAxrWq5mjuyQlSg="
     }
   }
 }

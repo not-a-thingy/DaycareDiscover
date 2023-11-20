@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "daycarediscover",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authdaycarediscover25b39bc0",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

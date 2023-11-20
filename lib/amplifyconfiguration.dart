@@ -1,6 +1,19 @@
 const amplifyconfig = '''{
     "UserAgent": "aws-amplify-cli/2.0",
     "Version": "1.0",
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "daycarediscover": {
+                    "endpointType": "GraphQL",
+                    "endpoint": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+                    "region": "ap-southeast-2",
+                    "authorizationType": "API_KEY",
+                    "apiKey": "da2-wztxxufejfejteuwucmjq3aznq"
+                }
+            }
+        }
+    },
     "auth": {
         "plugins": {
             "awsCognitoAuthPlugin": {
@@ -45,6 +58,27 @@ const amplifyconfig = '''{
                         "verificationMechanisms": [
                             "EMAIL"
                         ]
+                    }
+                },
+                "AppSync": {
+                    "Default": {
+                        "ApiUrl": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+                        "Region": "ap-southeast-2",
+                        "AuthMode": "API_KEY",
+                        "ApiKey": "da2-wztxxufejfejteuwucmjq3aznq",
+                        "ClientDatabasePrefix": "daycarediscover_API_KEY"
+                    },
+                    "daycarediscover_AMAZON_COGNITO_USER_POOLS": {
+                        "ApiUrl": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+                        "Region": "ap-southeast-2",
+                        "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+                        "ClientDatabasePrefix": "daycarediscover_AMAZON_COGNITO_USER_POOLS"
+                    },
+                    "daycarediscover_AWS_IAM": {
+                        "ApiUrl": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+                        "Region": "ap-southeast-2",
+                        "AuthMode": "AWS_IAM",
+                        "ClientDatabasePrefix": "daycarediscover_AWS_IAM"
                     }
                 }
             }

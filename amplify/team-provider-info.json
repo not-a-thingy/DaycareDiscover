@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "daycarediscover25b39bc0": {}
+      },
+      "api": {
+        "daycarediscover": {}
       }
     }
   }

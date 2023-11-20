@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "daycarediscover",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authdaycarediscover25b39bc0",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-daycarediscover-dev-94310-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/3bd8f01ade0cd9f1265d9838e887dd48f92ad7ae"
+}

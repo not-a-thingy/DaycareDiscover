@@ -42,7 +42,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-daycarediscover-dev-94310-deployment/amplify-cfn-templates/auth/daycarediscover25b39bc0-cloudformation-template.json",
         "logicalId": "authdaycarediscover25b39bc0"
       },
-      "lastPushTimeStamp": "2023-11-20T02:29:19.747Z",
+      "lastPushTimeStamp": "2023-11-20T02:39:22.429Z",
       "output": {
         "UserPoolId": "ap-southeast-2_hpRwtzqvi",
         "AppClientIDWeb": "1ku38pr88k8vt7cbblvlemqpa8",
@@ -87,9 +87,17 @@
               "authenticationType": "AWS_IAM"
             }
           ]
-        }
+        },
+        "GraphQLAPIIdOutput": "56vwmneb7ngirdxlc3obl6bdzm",
+        "GraphQLAPIEndpointOutput": "https://liyoishus5gczbc6mtk62axfum.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-wztxxufejfejteuwucmjq3aznq"
       },
-      "lastPushTimeStamp": "2023-11-20T02:29:32.865Z"
+      "lastPushTimeStamp": "2023-11-20T02:39:23.839Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-daycarediscover-dev-94310-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apidaycarediscover"
+      },
+      "lastPushDirHash": "envmssabu3W7DAxrWq5mjuyQlSg="
     }
   }
 }
