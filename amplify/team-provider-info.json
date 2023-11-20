@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-daycarediscover-dev-94310-authRole",
+      "UnauthRoleArn": "arn:aws:iam::837559498329:role/amplify-daycarediscover-dev-94310-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::837559498329:role/amplify-daycarediscover-dev-94310-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-daycarediscover-dev-94310-deployment",
+      "UnauthRoleName": "amplify-daycarediscover-dev-94310-unauthRole",
+      "StackName": "amplify-daycarediscover-dev-94310",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:837559498329:stack/amplify-daycarediscover-dev-94310/2d401920-8746-11ee-8acd-06ab936cd80b",
+      "AmplifyAppId": "dq6p27a55jb76"
+    },
+    "categories": {
+      "auth": {
+        "daycarediscover25b39bc0": {}
+      }
+    }
+  }
+}

@@ -17,6 +17,11 @@ import 'package:afiq_s_application2/presentation/schedule_tab_container_screen/s
 import 'package:afiq_s_application2/presentation/message_tab_container_screen/message_tab_container_screen.dart';
 import 'package:afiq_s_application2/presentation/app_navigation_screen/app_navigation_screen.dart';
 
+enum AppRoute {
+  home,
+  schedule,
+  editSchedule,
+}
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
 
@@ -60,7 +65,7 @@ class AppRoutes {
 
   static const String initialRoute = '/initialRoute';
 
-  static Map<String, WidgetBuilder> get routes => {
+  /*static Map<String, WidgetBuilder> get routes => {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
         signupScreen: SignupScreen.builder,
@@ -79,5 +84,6 @@ class AppRoutes {
         messageTabContainerScreen: MessageTabContainerScreen.builder,
         appNavigationScreen: AppNavigationScreen.builder,
         initialRoute: SplashScreen.builder
-      };
+      };*/
+  
 }

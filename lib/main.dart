@@ -2,53 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/app_export.dart';
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:afiq_s_application2/dcd_planner_app.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
-void main() {
+import 'amplifyconfiguration.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Future.wait([
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]),
-    PrefUtils().init()
-  ]).then((value) {
-    runApp(MyApp());
-  });
+  try {
+    await _configureAmplify();
+  } on AmplifyAlreadyConfiguredException {
+    debugPrint('Amplify configuration failed.');
+  }
+
+  runApp(
+    const ProviderScope(
+      child: DaycareDiscovery(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeBloc(
-        ThemeState(
-          themeType: PrefUtils().getThemeData(),
-        ),
-      ),
-      child: BlocBuilder<ThemeBloc, ThemeState>(
-        builder: (context, state) {
-          return MaterialApp(
-            theme: theme,
-            title: 'afiq_s_application2',
-            navigatorKey: NavigatorService.navigatorKey,
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: [
-              AppLocalizationDelegate(),
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: [
-              Locale(
-                'en',
-                '',
-              ),
-            ],
-            initialRoute: AppRoutes.initialRoute,
-            routes: AppRoutes.routes,
-          );
-        },
-      ),
-    );
-  }
+Future<void> _configureAmplify() async {
+  await Amplify.addPlugins([
+    AmplifyAuthCognito(),
+  ]);
+  await Amplify.configure(amplifyconfig);
 }
