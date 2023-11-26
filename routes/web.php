@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthManager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/bookvisit', [AuthManager::class,'bookvisit'])->name('bookvisit');
+Route::post('/bookvisit', [AuthManager::class,'bookvisitPost'])->name('bookvisit.post');
+
+
