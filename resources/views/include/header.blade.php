@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('bookvisit')}}">Book Visit</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('addvisit')}}">Add Visit</a>
+          </li>
         </ul>
         <span class="navbar-text">
             <a class="nav-link" href="#">Logout</a>

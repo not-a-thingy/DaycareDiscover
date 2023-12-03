@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get('/bookvisit', [AuthManager::class,'bookvisit'])->name('bookvisit');
 Route::post('/bookvisit', [AuthManager::class,'bookvisitPost'])->name('bookvisit.post');
-
+Route::get('/addvisit', [AuthManager::class,'addvisit'])->name('addvisit');
+Route::post('/addvisit', [AuthManager::class,'addvisitPost'])->name('addvisit.post');
 
