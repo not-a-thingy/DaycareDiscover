@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Testvisit extends Model
+class Bookvisit extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 

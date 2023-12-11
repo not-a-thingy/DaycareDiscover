@@ -26,4 +26,6 @@ Route::post('/addvisit', [Addvisitcontroller::class,'addvisitPost'])->name('addv
 Route::get('/editvisit/{id}', [Addvisitcontroller::class,'edit'])->name('editvisit');
 Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
 Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
-
+Route::get('/editbook/{id}', [AuthManager::class,'edit'])->name('editbook');
+Route::put('/updatebook/{id}', [AuthManager::class,'update'])->name('updatebook');
+Route::post('/cancelbook/{id}', [AuthManager::class,'cancel'])->name('cancelbook');

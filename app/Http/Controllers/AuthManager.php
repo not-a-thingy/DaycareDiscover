@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Testvisit;
+use App\Models\Bookvisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthManager extends Controller
 {
     function bookvisit(){
-        return view('bookvisit');
+        $books = Bookvisit::all()->toArray();
+        return view('bookvisit', compact('books'));
     }
 
     function bookvisitPost(Request $request){
@@ -29,11 +31,29 @@ class AuthManager extends Controller
         return redirect(route('bookvisit'))->with('success','Please wait for approval'); 
 }
 
-        /*function bookcheckPost(Request $request){
-            $credentials = $request->only('date','time');
-            if(Auth::attempt( $credentials )){
-                return redirect(route('bookvisit'))->with('success','Please wait for approval');
+    function edit($id){
+        $books = Bookvisit::find($id);
+        return view('editbook', compact('books','id'));
+    }
+
+    function update(Request $request, $id){
+        $this->validate($request, [
+            'date'=> 'required',
+            'time'=> 'required'
+            ]);
+        $books = Bookvisit::find($id);
+        $books->date = $request->get('date');
+        $books->time = $request->get('time');
+        $books->save();
+        return redirect(route('bookvisit'))->with('success','Booking Has Been Updated');
+    }
+
+
+        function cancel($id){
+            $books = Bookvisit::find($id);
+            $books->delete();
+            return redirect(route('bookvisit'))->with('success','Booking Cancelled');
+
+
         }
-        return redirect(route('bookvisit'))->with('erroe','Please try again');
-        }*/
 }
