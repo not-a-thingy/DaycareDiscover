@@ -31,6 +31,11 @@ class UserAdminController extends Controller
      */
     public function index(Request $request)
     {
+        if (auth()->user()->role != 1) {
+            // If not an admin, redirect to the appropriate home based on the role
+            return $this->redirectToRole(auth()->user()->role);
+        }
+
         $data = User::orderBy('id', 'desc')->paginate(5);
         
         return view('admin.index', compact('data'));
@@ -40,7 +45,11 @@ class UserAdminController extends Controller
    
     public function create()
     {
-    
+      if (auth()->user()->role != 1) {
+            // If not an admin, redirect to the appropriate home based on the role
+            return $this->redirectToRole(auth()->user()->role);
+        }
+
         return view('admin.create');
     }
 
@@ -77,6 +86,10 @@ class UserAdminController extends Controller
      */
     public function show($id)
     {
+        if (auth()->user()->role != 1) {
+            // If not an admin, redirect to the appropriate home based on the role
+            return $this->redirectToRole(auth()->user()->role);
+        }
         $user = User::find($id);
         if (!$user) {
             abort(404); // or handle the situation appropriately
@@ -93,6 +106,10 @@ class UserAdminController extends Controller
      */
     public function edit($id)
     {
+        if (auth()->user()->role != 1) {
+            // If not an admin, redirect to the appropriate home based on the role
+            return $this->redirectToRole(auth()->user()->role);
+        }
         $user = User::find($id);
 
         return view('admin.edit', compact('user'));
@@ -144,5 +161,16 @@ class UserAdminController extends Controller
             ->with('success', 'User deleted successfully.');
     }
 
-   
+    private function redirectToRole($role)
+    {
+        switch ($role) {
+            case 1:
+                return redirect()->route('admin.home');
+            case 2:
+                return redirect()->route('operator.home');
+            default:
+                return redirect()->route('home');
+        }
+    }
+    
 }

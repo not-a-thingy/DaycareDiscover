@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Users</h1>
+          <h1 class="m-0">Day Care Info</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
@@ -39,33 +39,44 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">User
-              
+            <div class="card-header">Day Care 
+                
                     <span class="float-right">
-                        <a class="btn btn-primary" href="{{ route('admin.index') }}">Back</a>
+                        <a class="btn btn-primary" href="{{ route('admin.verify.verify') }}">Back</a>
                     </span>
               
             </div>
             <div class="card-body">
-                <div class="lead">
-                    <strong>Name:</strong>
-                    {{ $user->name }}
-                </div>
-                <div class="lead">
-                    <strong>Email:</strong>
-                    {{ $user->email }}
-                </div>
-                <div class="lead">
-                    <strong>Role:</strong>
-                    <?php if($user->role == 1){
-                                        echo 'Admin';
-                                    }else if($user->role == 2) {
-                                        echo 'Operator';
-                                    }else{
-                                        echo 'Parent';
-                                    }?>
-                </div>
-            </div>
+  
+  <div class="card-body">
+  <h5 class="card-title">Name: {{ $user->name }}</h5>
+<h5 class="card-text">Email: {{ $user->email }}</h5>
+<h5 class="card-text">Contact: {{ $user->contact }}</h5>
+<h5 class="card-text">Address: {{ $user->address }}</h5>
+<h5 class="card-text">Facility: {{ $user->facilities }}</h5>
+<h5 class="card-text">Rating: {{ $user->rating }}</h5>
+<h5 class="card-text">Rating:  <?php if($item->verify == '0'){
+                                                $data = 'Pending';
+                                            }else if($item->verify == "1"){
+                                                $data = "Verfied";
+                                            } else{
+                                                $data = "Rejected";
+                                            }?>
+            <button class="btn btn-sm  <?php if($data == 'Rejected'){
+                echo ' btn-warning';
+            }else if($data == 'Pending'){
+                echo 'btn-info';
+            }else{
+                echo ' btn-success';
+            }
+       ?> "><?php echo $data?></button></h5>
+
+
+</div>
+
+</hr>
+
+</div>
         </div>
     </div>
 </div>

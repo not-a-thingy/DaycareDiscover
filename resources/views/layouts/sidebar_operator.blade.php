@@ -44,7 +44,37 @@
                 </a>
               </li>
             
-     
+              <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="nav-icon fa-solid fa-key"></i>
+              <p>
+                Day Care
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">3</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" style = "position:relative; left:15px;">
+                <a href="{{ url('/daycare') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  <p>Day Care Info</p>
+                </a>
+              </li>
+            </ul>
+            
+          </li>
+
+             
+          <li class="nav-item">
+         
+              <li class="nav-item" >
+                <a href="{{ url('/details_daycare') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  <p>View Day Care</p>
+                </a>
+              </li>
+          
+          </li>
           
          
       </nav>

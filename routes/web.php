@@ -5,6 +5,9 @@ use App\Http\Controllers\Addvisitcontroller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\DayCareInfoController;
+use App\Http\Controllers\VerifyDayCareController;
+use App\Http\Controllers\ViewDayCareController;
 use App\Http\App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -47,32 +50,43 @@ Route::patch('/users/{user}/update1', [UserController::class, 'update1'])->name(
 Route::get('/user', [UserController::class, 'index'])->name('users.index');
 Route::patch('/user/{user}/edit', [UserController::class, 'update'])->name('users.edit');
 
-
-Route::get('/admin', [UserAdminController::class, 'index'])->name('admin.index');
-
-Route::get('/admin/{user}/edit', [UserAdminController::class, 'edit'])->name('admin.edit');
-Route::patch('/admin/{user}/update', [UserAdminController::class, 'update'])->name('admin.update');
+Route::get('/details_daycare', [ViewDayCareController::class, 'index'])->name('index');
+Route::get('/details_daycare/{user}/show', [ViewDayCareController::class, 'show'])->name('show');
 
 
-Route::get('/admin/create', [UserAdminController::class, 'create'])->name('admin.create');
-// web.php
-
-Route::get('/admin/{user}/show', [UserAdminController::class , 'show'])->name('admin.show');
-
-Route::delete('/admin/{user}/destroy', [UserAdminController::class, 'destroy'])->name('admin.destroy');
 
 // web.php
 
-Route::post('/admin/store', [UserAdminController::class,'store'])->name('admin.store');
+
 
 
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('/admin/user', UserAdminController::class);
+    Route::resource('daycare', DayCareInfoController::class);
+   
+  
 });
 
+Route::group(['middleware' => ['auth', 'role:1']], function () {
+    Route::get('/admin/verify/daycares', [VerifyDayCareController::class, 'index'])->name('admin.verify.verify');
+    Route::get('/admin/verify/daycares/{user}/show', [VerifyDayCareController::class, 'show'])->name('admin.verify.show');
+    Route::get('/admin/verify/daycares/{user}/edit', [VerifyDayCareController::class, 'edit'])->name('admin.verify.edit');
+    Route::patch('/admin/verify/daycares/{user}/update', [VerifyDayCareController::class, 'update'])->name('admin.verify.update');
+    Route::get('/admin', [UserAdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/{user}/edit', [UserAdminController::class, 'edit'])->name('admin.edit');
+    Route::patch('/admin/{user}/update', [UserAdminController::class, 'update'])->name('admin.update');
+    Route::get('/admin/create', [UserAdminController::class, 'create'])->name('admin.create');
+    Route::get('/admin/{user}/show', [UserAdminController::class , 'show'])->name('admin.show');
+    Route::delete('/admin/{user}/destroy', [UserAdminController::class, 'destroy'])->name('admin.destroy');
+    Route::post('/admin/store', [UserAdminController::class,'store'])->name('admin.store');
+});
 
+Route::group(['middleware' => ['auth', 'role:2']], function () {
+    Route::get('/daycare/{user}/edit', [DayCareInfoController::class, 'edit'])->name('operator.daycare.edit');
+    Route::patch('/daycare/{user}/update', [DayCareInfoController::class, 'update'])->name('operator.daycare.update');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('role:1');
