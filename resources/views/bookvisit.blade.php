@@ -61,11 +61,19 @@
                         <td>{{$row['date']}}</td>
                         <td>{{$row['time']}}</td>
                         <td>{{$row['status']}}</td>
+                        @if ($row['status']!='pending')
+                            <td></td>
+                        
+                        @elseif($row['status']=='pending')
                         <td><a href="{{route('editbook',$row['id'])}}" class="btn btn-success">Edit</a></td>
                         <td><form method="post" class="delete_form" action="{{route('cancelbook',$row['id'])}}">
                             @csrf
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Do you really want to cancel it?')">Cancel</button>
                         </td>
+                        
+                            
+                        @endif
+
                     </tr>
                     @endforeach
                 </table>
