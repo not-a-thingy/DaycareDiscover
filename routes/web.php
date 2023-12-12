@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\Addvisitcontroller;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\AdminAuthController;
+use App\Http\App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +33,47 @@ Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('de
 Route::get('/editbook/{id}', [AuthManager::class,'edit'])->name('editbook');
 Route::put('/updatebook/{id}', [AuthManager::class,'update'])->name('updatebook');
 Route::post('/cancelbook/{id}', [AuthManager::class,'cancel'])->name('cancelbook');
+
+Auth::routes();
+
+
+// routes/web.php or routes/web.php
+Route::get('/users/{user}/password_change', [UserController::class, 'editpass'])->name('users.editpass');
+Route::patch('/users/{user}/change', [UserController::class, 'change'])->name('users.change');
+
+Route::get('/users/{user}/editt', [UserController::class, 'editt'])->name('users.editt');
+Route::patch('/users/{user}/update1', [UserController::class, 'update1'])->name('users.update1');
+
+Route::get('/user', [UserController::class, 'index'])->name('users.index');
+Route::patch('/user/{user}/edit', [UserController::class, 'update'])->name('users.edit');
+
+
+Route::get('/admin', [UserAdminController::class, 'index'])->name('admin.index');
+
+Route::get('/admin/{user}/edit', [UserAdminController::class, 'edit'])->name('admin.edit');
+Route::patch('/admin/{user}/update', [UserAdminController::class, 'update'])->name('admin.update');
+
+
+Route::get('/admin/create', [UserAdminController::class, 'create'])->name('admin.create');
+// web.php
+
+Route::get('/admin/{user}/show', [UserAdminController::class , 'show'])->name('admin.show');
+
+Route::delete('/admin/{user}/destroy', [UserAdminController::class, 'destroy'])->name('admin.destroy');
+
+// web.php
+
+Route::post('/admin/store', [UserAdminController::class,'store'])->name('admin.store');
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('users', UserController::class);
+    Route::resource('/admin/user', UserAdminController::class);
+});
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('role:1');
+Route::get('/operator/home', [App\Http\Controllers\HomeController::class, 'operatorHome'])->name('operator.home')->middleware('role:2');
