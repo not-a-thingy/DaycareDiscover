@@ -24,8 +24,8 @@ class AuthManager extends Controller
 
         $data['date'] = $request->date;
         $data['time'] = $request->time;
-        $testvisit = Testvisit::create($data);
-        if(!$testvisit){
+        $bookvisit = Bookvisit::create($data);
+        if(!$bookvisit){
             return redirect(route('bookvisit'))->with('error','Please try again');
         }
         return redirect(route('bookvisit'))->with('success','Please wait for approval'); 
