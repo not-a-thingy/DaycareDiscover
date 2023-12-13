@@ -52,6 +52,18 @@
         @csrf
         @method('PATCH')
 
+        @if($user->img)
+            <div style="margin-top:20px" class="form-group">
+                <label for="current_img">Current Image:</label>
+                <img src="{{ Storage::url($user->img)  }}" alt="Current Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+            </div>
+        @endif
+
+        <div style="margin-top:20px" class="form-group">
+            <label for="img">Image:</label>
+            <input type="file" name="img" class="form-control" placeholder="Image">
+        </div>
+
         <div style="margin-top:20px" class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Name">

@@ -88,6 +88,12 @@ Route::group(['middleware' => ['auth', 'role:2']], function () {
     Route::patch('/daycare/{user}/update', [DayCareInfoController::class, 'update'])->name('operator.daycare.update');
 });
 
+
+
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('role:1');
 Route::get('/operator/home', [App\Http\Controllers\HomeController::class, 'operatorHome'])->name('operator.home')->middleware('role:2');

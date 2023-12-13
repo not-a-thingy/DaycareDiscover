@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\DayInfo;
 use Illuminate\Http\Request;
 
 
@@ -24,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (auth()->user()->role != 0) {
+            // If not an admin, redirect to the appropriate home based on the role
+            return $this->redirectToRole(auth()->user()->role);
+        }
+
+        $data = DayInfo::where('verify', 1)->orderBy('id', 'asc')->paginate(40);
+        return view ('include.daycare', compact ('data'));
+        
     }
 
     public function adminHome()
@@ -56,8 +63,8 @@ class HomeController extends Controller
                 return redirect()->route('admin.home');
             case 2:
                 return redirect()->route('operator.home');
-            default:
-                return redirect()->route('home');
+            case 0:
+                return redirect()->route('include.daycare');
         }
     }
 

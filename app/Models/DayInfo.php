@@ -23,6 +23,7 @@ class DayInfo extends Model
      'facilities',
      'rating',
      'verify',
+     'img',
      ];
    
 

@@ -23,6 +23,7 @@ return new class extends Migration
                 $table->string('facilities');
                 $table->integer('rating');
                 $table->boolean('verify')->default(0);
+                $table->string('img');
                 $table->rememberToken();
                 $table->timestamps();
                 });

@@ -38,12 +38,28 @@
                                     </span>
                                 @enderror
                         </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="role"><i class="zmdi zmdi-role"></i></label>
+                            <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
+                                <option value="0" {{ old('role') == 0 ? 'selected' : '' }}>Parent</option>
+                                <option value="2" {{ old('role') == 2 ? 'selected' : '' }}>Operator</option>
+                            </select>
+
+                            @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
 
                       
                         <div class="form-group">
                             <label for="password" class="col-md-4 col-form-label text-md-end"></label>
-                            <div class="col-md-6">
-                                <input  style=" width: 270px; font-family:verdana;" id="password" type="password" placeholder= "Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="col-md-6"  style="padding:0;">
+                                <input  style=" width:278px; font-family:verdana;" id="password" type="password" placeholder= "Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -57,8 +73,8 @@
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end"></label>
 
-                            <div class="col-md-6">
-                                <input  style=" width: 270px; font-family:verdana;" id="password-confirm" type="password" placeholder= "Password Confirmation" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="col-md-6" style="padding:0;">
+                                <input  style="margin:0; width:278px; font-family:verdana;" id="password-confirm" type="password" placeholder= "Password Confirmation" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                          

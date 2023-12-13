@@ -35,21 +35,19 @@
   </div>
   </div>
   
-  <div class="card-body">
-  
-        <div class="card-body">
+  <div class="card" style="width: 400px;">
+  <img src="{{ Storage::url($course->img)  }}" class="card-img-top" alt="...">
+        <div class="card-body"  style="width: 100%">
+       
         <h5 class="card-title">Name: {{ $course->name }}</h5>
 <h5 class="card-text">Email: {{ $course->email }}</h5>
 <h5 class="card-text">Contact: {{ $course->contact }}</h5>
 <h5 class="card-text">Address: {{ $course->address }}</h5>
 <h5 class="card-text">Facility: {{ $course->facilities }}</h5>
 <h5 class="card-text">Rating: {{ $course->rating }}</h5>
-
-
-  </div>
-      
+  </div> 
     </hr>
-  
   </div>
 </div></div>
 @stop
+

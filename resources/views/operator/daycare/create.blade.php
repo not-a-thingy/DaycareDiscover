@@ -36,8 +36,12 @@
   </div>
   <div class="card-body">
       
-      <form action="{{ url('daycare') }}" method="post">
+      <form action="{{ url('daycare') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
+
+ <label>Image</label><br>
+<input type="file" name="img" id="img" class="form-control" required><br>
+
   <label>Name</label><br>
 <input type="text" name="name" id="name" class="form-control" required><br>
 
