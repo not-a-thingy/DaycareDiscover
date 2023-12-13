@@ -40,6 +40,8 @@ Route::get('/approvevisit', [AuthManager::class,'approvevisit'])->name('approvev
 Route::get('/approvalvisit/{id}', [AuthManager::class,'editapprove'])->name('approvalvisit');
 Route::put('/approvalvisit/{id}', [AuthManager::class,'approvalvisit'])->name('approvalvisit');
 
+Route::post('/comments', [CommentsController::class, 'store']);
+Route::get('/comments', [CommentsController::class, 'index']);
 
 
 Auth::routes();
