@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\BookVisitController;
 use App\Http\Controllers\Addvisitcontroller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAdminController;
@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\DayCareInfoController;
 use App\Http\Controllers\VerifyDayCareController;
 use App\Http\Controllers\ViewDayCareController;
+use App\Http\Controllers\CommentsController;
 use App\Http\App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -26,19 +27,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bookvisit', [AuthManager::class,'bookvisit'])->name('bookvisit');
-Route::post('/bookvisit', [AuthManager::class,'bookvisitPost'])->name('bookvisit.post');
+Route::get('/bookvisit', [BookVisitController::class,'bookvisit'])->name('bookvisit');
+Route::post('/bookvisit', [BookVisitController::class,'bookvisitPost'])->name('bookvisit.post');
 Route::get('/addvisit', [Addvisitcontroller::class,'addvisit'])->name('addvisit');
 Route::post('/addvisit', [Addvisitcontroller::class,'addvisitPost'])->name('addvisit.post');
 Route::get('/editvisit/{id}', [Addvisitcontroller::class,'edit'])->name('editvisit');
 Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
 Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
-Route::get('/editbook/{id}', [AuthManager::class,'edit'])->name('editbook');
-Route::put('/updatebook/{id}', [AuthManager::class,'update'])->name('updatebook');
-Route::post('/cancelbook/{id}', [AuthManager::class,'cancel'])->name('cancelbook');
-Route::get('/approvevisit', [AuthManager::class,'approvevisit'])->name('approvevisit');
-Route::get('/approvalvisit/{id}', [AuthManager::class,'editapprove'])->name('approvalvisit');
-Route::put('/approvalvisit/{id}', [AuthManager::class,'approvalvisit'])->name('approvalvisit');
+Route::get('/editbook/{id}', [BookVisitController::class,'edit'])->name('editbook');
+Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
+Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');
+Route::get('/approvevisit', [BookVisitController::class,'approvevisit'])->name('approvevisit');
+Route::get('/approvalvisit/{id}', [BookVisitController::class,'editapprove'])->name('approvalvisit');
+Route::put('/approvalvisit/{id}', [BookVisitController::class,'approvalvisit'])->name('approvalvisit');
 
 Route::post('/comments', [CommentsController::class, 'store']);
 Route::get('/comments', [CommentsController::class, 'index']);
@@ -96,11 +97,9 @@ Route::group(['middleware' => ['auth', 'role:2']], function () {
 });
 
 
-
-
-
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('role:1');
 Route::get('/operator/home', [App\Http\Controllers\HomeController::class, 'operatorHome'])->name('operator.home')->middleware('role:2');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
