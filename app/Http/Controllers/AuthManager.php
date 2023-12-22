@@ -8,7 +8,7 @@ use App\Models\Bookvisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class BookVisitController extends Controller
+class AuthManager extends Controller
 {
     function bookvisit(){
         $books = Bookvisit::all()->toArray();
