@@ -20,6 +20,10 @@ return new class extends Migration
                 $table->string('email')->unique();
                 $table ->boolean('role')->default(0);
                 $table->string('password');
+                $table->string('contact');
+                $table->string('address');
+                $table->string('image');
+                $table->string('app_date')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
                 });

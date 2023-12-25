@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style = "position:fixed; height: 100%"  >
 
-<a href="/home" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center;">
+<a href="/user" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center;">
       OPERATOR PANEL
       
     </a>

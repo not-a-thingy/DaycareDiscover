@@ -43,11 +43,19 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
-            'roles' => 'required'
+            'roles' => 'required',
+            'contact' => 'required',
+            'address' => 'required',
+            'image' => 'image|max:10048',
         ]);
     
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('profile_images', 'public');
+            $input['image'] = $imagePath;
+        }
     
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
@@ -96,9 +104,17 @@ class UserController extends Controller
     $this->validate($request, [
         'name' => 'required',
         'email' => 'required|email|unique:users,email,' . $id,
+        'contact' => 'required',
+        'address' => 'required',
+        'image' => 'image|max:10048',
+        'ap_date'=> 'required',
     ]);
 
-    $input = $request->only(['name', 'email']);
+    $input = $request->all();
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('profile_images', 'public');
+        $input['image'] = $imagePath;
+    }
 
     $user = User::find($id);
     $user->update($input);
@@ -111,10 +127,17 @@ public function update1(Request $request, $id)
     $this->validate($request, [
         'name' => 'required',
         'email' => 'required|email|unique:users,email,' . $id,
+        'contact' => 'required',
+        'address' => 'required',
+        'image' => 'image|max:10048',
+        'ap_date'=> 'required',
     ]);
 
-    $input = $request->only(['name', 'email']);
-
+    $input = $request->all();
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('profile_images', 'public');
+        $input['image'] = $imagePath;
+    }
     $user = User::find($id);
     $user->update($input);
 

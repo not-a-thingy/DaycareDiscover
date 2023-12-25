@@ -1,18 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="container" width="100%">
+<style>
+    body {
+        background: url('img/bg.jpg');
+    }
+    .card{
+        display: flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .card-footer{
+        border:none;
+        background-color:transparent;
+    }
+    </style>
+<div class="container" style="max-width:600px">
     <div class="card mt-4">
-        <div class="card-header bg-info text-white">
-            User Profile
-        </div>
+       
+        <img src="{{ Storage::url($user->image)  }}" alt="User Image" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px; margin-top: 15px;  margin-left:20px;">
+
+
         <div class="card-body">
             <div class="mb-3">
                 <strong>Name:</strong> {{ $user->name }}
             </div>
             <div class="mb-3">
                 <strong>Email:</strong> {{ $user->email }}
+            </div>
+            <div class="mb-3">
+                <strong>Contact:</strong> {{ $user->contact }}
+            </div>
+            <div class="mb-3">
+                <strong>Address:</strong> {{ $user->address }}
+            </div>
+            <div class="mb-3">
+                <strong>Appoinment Date:</strong> <?php if($user -> ap_date == NULL){
+                    echo 'Not Available';
+                }else{
+                    echo $user -> ap_date;
+                } ?>
             </div>
             <div class="mb-3">
                 <strong>Role:</strong>  <?php if($user->role == 1){

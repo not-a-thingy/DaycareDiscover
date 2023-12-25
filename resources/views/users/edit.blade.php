@@ -51,14 +51,39 @@
             </div>
 
    <div class="card-body">
-    <form method="POST" action="{{ route('users.update1', $user->id) }}">
+    <form method="POST" action="{{ route('users.update1', $user->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
+
+        <div class="mb-3">
+          <label for="profile_image">Profile Image:</label>
+          <img src="{{Storage::url($user->image)}}" alt="Profile Image" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+        </div>
+
+        <!-- New image upload -->
+        <div style="margin-top:20px" class="form-group">
+            <label for="profile_image">Change Profile Image:</label>
+            <input type="file" name="image" class="form-control">
+        </div>
 
         <div style="margin-top:20px" class="form-group">
             <label for="name">Name:</label>
             <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form-control" placeholder="Name">
         </div>
+        <div style="margin-top:20px" class="form-group">
+            <label for="name">Contact:</label>
+            <input type="text" name="contact" value="{{ old('contact', $user->contact) }}" class="form-control" placeholder="Contact">
+        </div>
+
+        <div style="margin-top:20px" class="form-group">
+            <label for="name">Address:</label>
+            <input type="text" name="address" value="{{ old('address', $user->address) }}" class="form-control" placeholder="Address">
+        </div>
+        <div style="margin-top:20px" class="form-group">
+            <label for="ap_date">Appoinment Date:</label>
+            <input type="date" name="ap_date" value="{{ old('ap_date', $user->ap_date) }}" class="form-control" placeholder="Appointment Date">
+        </div>
+       
 
         <div style="margin-top:20px" class="form-group">
             <label for="email">Email:</label>

@@ -42,8 +42,14 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.store') }}">
+                    <form method="POST" action="{{ route('admin.store') }}" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group">
+                        <p for="profile_picture">Profile Picture</p>
+                        <input style="padding:0; padding-bottom:5px;" type="file" class="form-control-file" id="profile_picture" name="image" accept="image/*">
+                       </div>
+
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" name="name" placeholder="Name" class="form-control">
@@ -52,7 +58,14 @@
                             <label for="email">Email:</label>
                             <input type="text" name="email" placeholder="Email" class="form-control">
                         </div>
-                      
+                        <div class="form-group">
+                            <label for="email">Contact:</label>
+                            <input type="text" name="contact" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Address:</label>
+                            <input type="text" name="address" placeholder="Email" class="form-control">
+                        </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="password" name="password" placeholder="Password" class="form-control">
@@ -63,7 +76,7 @@
                         </div>
                         <div class="form-group">
     <label for="role">Role:</label>
-    <select name="role" class="form-control">
+    <select onchange="setname()" name="role" class="form-control">
         <option value="2" >Operator</option>
         <option value="1" >Admin</option>
         <option value="0">Parent</option>
@@ -77,4 +90,19 @@
         </div>
     </div>
 </div>
+
+<script>
+
+   function setname(){
+    let name = document.getElementById('role').value;
+    let username = document.getElementById('name');
+
+    if(name == 0){
+        username.placeholder = "Your Name";
+
+    }else if(name == 2){
+        username.placeholder = "Your DayCare Name";
+
+    }}
+</script>
 @endsection

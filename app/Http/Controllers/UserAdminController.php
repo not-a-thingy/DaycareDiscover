@@ -49,6 +49,7 @@ class UserAdminController extends Controller
             // If not an admin, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
+        
 
         return view('admin.create');
     }
@@ -61,14 +62,24 @@ class UserAdminController extends Controller
      */
     public function store(Request $request)
     {
+
+     
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
+            'contact' => 'required',
+            'address' => 'required',
+            'image' => 'required',
             'role' => 'required'
         ]);
     
         $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('profile_images', 'public');
+            $input['image'] = $imagePath;
+        }
         $input['password'] = Hash::make($input['password']);
     
         $user = User::create($input);

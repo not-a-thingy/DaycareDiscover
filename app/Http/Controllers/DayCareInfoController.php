@@ -70,10 +70,8 @@ class DayCareInfoController extends Controller
         // Check if a new image has been uploaded
         if ($request->hasFile('img')) {
             // Upload the new image
-            $fileName = time().$request->file('img')->getClientOriginalName();
-            $path = $request->file('img')->storeAs('daycare_images', $fileName, 'public');
-            $requestData["img"] = 'public/'.$path;
-    
+            $imagePath = $request->file('img')->store('daycare_images', 'public');
+            $requestData["img"] = $imagePath;
             // Update the image field in the database
             $dayInfo->update([
                 'img' =>  $requestData["img"] ,
