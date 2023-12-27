@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Testvisit;
 use App\Models\Bookvisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,13 +47,10 @@ class BookVisitController extends Controller
         return redirect(route('bookvisit'))->with('success','Booking Has Been Updated');
     }
 
-
         function cancel($id){
             $books = Bookvisit::find($id);
             $books->delete();
             return redirect(route('bookvisit'))->with('success','Booking Cancelled');
-
-
         }
 
         function approvevisit(){
