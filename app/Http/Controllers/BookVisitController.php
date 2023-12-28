@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Bookvisit;
+use App\Models\Addvisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookVisitController extends Controller
 {
     function bookvisit(){
-        $books = Bookvisit::all()->toArray();
-        return view('bookvisit', compact('books'));
+        $books = Bookvisit::orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
+        $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
+        return view('bookvisit', compact('books', 'availDate'));
     }
+    
+    public function availTime(Request $request)
+{
+    $date = $request->input('date');
+    $times = Addvisit::where('date', $date)->orderBy('time', 'asc')->pluck('time');
+
+    return response()->json(['times' => $times]);
+}
 
     function bookvisitPost(Request $request){
 
@@ -32,7 +42,9 @@ class BookVisitController extends Controller
 
     function edit($id){
         $books = Bookvisit::find($id);
-        return view('editbook', compact('books','id'));
+        
+        $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
+        return view('editbook', compact('books','id','availDate'));
     }
 
     function update(Request $request, $id){

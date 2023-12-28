@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title', 'Edit Visit')
 @section('content')
 
@@ -22,22 +22,44 @@
                         <label for="Book_Date" class="form-label">Date</label>
                         <select class="form-select" name="date" id="date" aria-label="Default select example">
                             <option selected="true" value="{{$books->date}}">{{$books->date}}</option>
-                            <option value="20-12-2023">20-12-2023</option>
-                            <option value="21-12-2023">21-12-2023</option>
-                            <option value="22-12-2023">22-12-2023</option>
+                            @foreach($availDate as $row1)
+                            <option value="{{$row1['date']}}">{{$row1['date']}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="Book_Time" class="form-label">Time</label>
                         <select class="form-select" name="time" id="time" aria-label="Default select example">
                             <option selected="true" value="{{$books->time}}">{{$books->time}}</option>
-                            <option value="8:00am">8:00am</option>
-                            <option value="9:00am">9:00am</option>
-                            <option value="10:00am">10:00am</option>
+                            <option value="time"><div id="times"></div></option>     
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>                    
                 </form>
+                <script>
+                    document.getElementById('date').addEventListener('change', function() {
+                        var date = this.value;
+                        fetch('/availTime', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                            },
+                            body: JSON.stringify({ date: date })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            var timeSelect = document.getElementById('time');
+                            timeSelect.innerHTML = '';
+                            data.times.forEach(function(time) {
+                                var option = document.createElement('option');
+                                option.value = time;
+                                option.textContent = time;
+                                timeSelect.appendChild(option);
+                            });
+                        });
+                    });
+                    </script>
             </div>
         </div>
     </div>
