@@ -67,12 +67,12 @@ class BookVisitController extends Controller
 
         function approvevisit(){
             $books = Bookvisit::all()->toArray();
-            return view('approvevisit', compact('books'));
+            return view('/operator/approvevisit', compact('books'));
           }
   
           function editapprove($id){
               $books = Bookvisit::find($id);
-              return view('approvalvisit', compact('books','id'));
+              return view('/operator/approvalvisit', compact('books','id'));
           }
   
           function approvalvisit(Request $request,$id){
@@ -82,6 +82,6 @@ class BookVisitController extends Controller
               $books = Bookvisit::find($id);
               $books->status = $request->get('status');
               $books->save();
-              return redirect(route('approvevisit'))->with('success',"Data updated.");
+              return redirect(route('/operator/approvevisit'))->with('success',"Data updated.");
           }
 }

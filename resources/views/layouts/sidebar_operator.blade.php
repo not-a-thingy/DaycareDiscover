@@ -61,6 +61,31 @@
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" style = "position:relative; left:15px;">
+                <a href="{{ url('addvisit') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  <p>Create Schedule</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" style = "position:relative; left:15px;">
+                <a href="{{ url('viewvisit') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  <p>View Schedule</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" style = "position:relative; left:15px;">
+                <a href="{{ url('approvevisit') }}" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  <p>Approve Visit</p>
+                </a>
+              </li>
+            </ul>
+
             
           </li>
 

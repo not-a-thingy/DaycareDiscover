@@ -10,8 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class Addvisitcontroller extends Controller
 {
     function addvisit(){
+        return view('operator/addvisit');
+    }
+
+    function viewvisit(){
         $visits = Addvisit::all()->toArray();
-        return view('addvisit',compact('visits'));
+        return view('/operator/viewvisit',compact('visits'));
     }
 
     function addvisitPost(Request $request){
@@ -25,14 +29,14 @@ class Addvisitcontroller extends Controller
          $data['time'] = $request->time;
          $addvisit = Addvisit::create($data);
          if(!$addvisit){
-             return redirect(route('addvisit'))->with('error','Please try again');
+             return redirect(route('/operator/viewvisit'))->with('error','Please try again');
          }
-         return redirect(route('addvisit'))->with('success',"Data recorded."); 
+         return redirect(route('/operator/viewvisit'))->with('success',"Data recorded."); 
     }
 
     function edit($id){
         $visits = Addvisit::find($id);
-        return view('editvisit',compact('visits','id'));
+        return view('/operator/editvisit',compact('visits','id'));
     }
 
     function update(Request $request,$id){
@@ -44,13 +48,13 @@ class Addvisitcontroller extends Controller
         $visits->date = $request->get('date');
         $visits->time = $request->get('time');
         $visits->save();
-        return redirect(route('addvisit'))->with('success',"Data updated."); 
+        return redirect(route('/operator/viewvisit'))->with('success',"Data updated."); 
     }
 
     function remove($id){
         $visits = Addvisit::find($id);
         $visits->delete();
-        return redirect(route('addvisit'))->with('success',"Data deleted.");
+        return redirect(route('/operator/viewvisit'))->with('success',"Data deleted.");
     }
 
 }

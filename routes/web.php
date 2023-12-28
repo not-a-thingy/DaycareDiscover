@@ -33,9 +33,9 @@ Route::post('/availTime', [BookVisitController::class,'availTime'])->name('avail
 Route::get('/editbook/{id}', [BookVisitController::class,'edit'])->name('editbook');
 Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
 Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');
-
 Route::get('/addvisit', [Addvisitcontroller::class,'addvisit'])->name('addvisit');
 Route::post('/addvisit', [Addvisitcontroller::class,'addvisitPost'])->name('addvisit.post');
+Route::get('/viewvisit', [Addvisitcontroller::class,'viewvisit'])->name('viewvisit');
 Route::get('/editvisit/{id}', [Addvisitcontroller::class,'edit'])->name('editvisit');
 Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
 Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
