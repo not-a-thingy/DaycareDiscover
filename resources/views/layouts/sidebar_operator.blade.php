@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style = "position:fixed; height: 100%"  >
 
-<a href="/user" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center;">
+<a href="/admin/home" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center;">
       OPERATOR PANEL
       
     </a>
@@ -11,7 +11,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         
         <div class="info">
-          <a href="/profile" style="text-decoration:none;" class="d-block">
+          <a href="{{ url('/users') }}" style="text-decoration:none;" class="d-block">
           <img style=" position:absolute; top:10px; left:10px; border-radius:50%; text-decoration:none;">
                                 {{ Auth::user()->name }}
           </a>

@@ -70,7 +70,7 @@ class UserAdminController extends Controller
             'password' => 'required|confirmed',
             'contact' => 'required',
             'address' => 'required',
-            'image' => 'required',
+            'image' => 'image|max:10048',
             'role' => 'required'
         ]);
     

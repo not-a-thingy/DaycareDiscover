@@ -58,9 +58,9 @@
                         <div class="form-group">
     <label for="role">Role:</label>
     <select name="role" class="form-control">
-        <option value="2" {{ old('role', $user->role) === '2' ? 'selected' : '' }}>Operator</option>
-        <option value="1" {{ old('role', $user->role) === '1' ? 'selected' : '' }}>Admin</option>
-        <option value="0" {{ old('role', $user->role) === '0' ? 'selected' : '' }}>Parent</option>
+        <option value="2" {{ old('role', $user->role) == '2' ? 'selected' : '' }}>Operator</option>
+        <option value="1" {{ old('role', $user->role) == '1' ? 'selected' : '' }}>Admin</option>
+        <option value="0" {{ old('role', $user->role) == '0' ? 'selected' : '' }}>Parent</option>
     </select>
 </div>
                         

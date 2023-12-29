@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Contact:</label>
-                            <input type="text" name="contact" placeholder="Email" class="form-control">
+                            <input type="text" name="contact" placeholder="Contact" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="email">Address:</label>
