@@ -26,7 +26,7 @@ class User extends Authenticatable
         'contact',
         'address',
         'image',
-        'ap_date'
+      //  'ap_date'
     ];
 
     /**

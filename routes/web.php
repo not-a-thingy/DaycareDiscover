@@ -23,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/bookvisit', [BookVisitController::class,'bookvisit'])->name('bookvisit');
 Route::post('/bookvisit', [BookVisitController::class,'bookvisitPost'])->name('bookvisit.post');
@@ -105,3 +103,8 @@ Route::get('/operator/home', [App\Http\Controllers\HomeController::class, 'opera
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login') ;
+
+Route::get('/', function () {
+    return view('login');
+});

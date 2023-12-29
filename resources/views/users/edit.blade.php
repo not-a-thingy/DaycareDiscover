@@ -79,10 +79,10 @@
             <label for="name">Address:</label>
             <input type="text" name="address" value="{{ old('address', $user->address) }}" class="form-control" placeholder="Address">
         </div>
-        <div style="margin-top:20px" class="form-group">
+        <!-- <div style="margin-top:20px" class="form-group">
             <label for="ap_date">Appoinment Date:</label>
             <input type="date" name="ap_date" value="{{ old('ap_date', $user->ap_date) }}" class="form-control" placeholder="Appointment Date">
-        </div>
+        </div> -->
        
 
         <div style="margin-top:20px" class="form-group">

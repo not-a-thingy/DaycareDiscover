@@ -106,10 +106,10 @@
                     <form method="POST" action="{{ route('register') }}" class="register-form" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group">
+                    <!--div class="form-group">
                         <p for="profile_picture">Profile Picture</p>
                         <input style="padding:0; padding-bottom:5px;" type="file" class="form-control-file" id="profile_picture" name="image" accept="image/*">
-                    </div>
+                    </div>-->
                         <br>
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
