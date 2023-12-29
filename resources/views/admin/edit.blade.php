@@ -37,7 +37,7 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">Create user
+                <div class="card-header">Edit User
                     <span class="float-right">
                         <a class="btn btn-primary" href="{{ route('admin.index') }}">Back</a>
                     </span>
