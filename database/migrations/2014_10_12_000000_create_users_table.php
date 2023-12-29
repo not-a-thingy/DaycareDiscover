@@ -22,7 +22,8 @@ return new class extends Migration
                 $table->string('password');
                 $table->string('contact');
                 $table->string('address');
-                $table->string('image');
+                //$table->string('image');
+                $table->string('image')->nullable();
                 $table->string('app_date')->nullable();
                 $table->rememberToken();
                 $table->timestamps();
