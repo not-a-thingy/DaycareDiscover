@@ -7,7 +7,7 @@
 
 <!-- Main Sidebar Container -->
 @include('layouts.sidebar_operator')
-
+<body> 
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="height: 100px;">
@@ -65,4 +65,6 @@
   
   </div>
 </div></div>
+
+</body>
 @stop
