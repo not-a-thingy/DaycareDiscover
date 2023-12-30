@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style = "position:fixed; height: 100%"  >
+<aside class="main-sidebar sidebar-dark-primary elevation-4 " style = "position:fixed; height: 100%; background-color: #e2eaef;"  >
 
-<a href="/admin/home" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center;">
+<a href="/admin/home" class="brand-link" style="text-decoration:none; font-size:20px; text-align:center; color:#000;">
       OPERATOR PANEL
       
     </a>
@@ -11,7 +11,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         
         <div class="info">
-          <a href="{{ url('/users') }}" style="text-decoration:none;" class="d-block">
+          <a href="{{ url('/users') }}" style="text-decoration:none;color: #000;" class="d-block">
           <img style=" position:absolute; top:10px; left:10px; border-radius:50%; text-decoration:none;">
                                 {{ Auth::user()->name }}
           </a>
@@ -45,7 +45,7 @@
               </li>
             
               <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link text-dark">
             <i class="nav-icon fa-solid fa-key"></i>
               <p>
                 Day Care
@@ -55,7 +55,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item" style = "position:relative; left:15px;">
-                <a href="{{ url('/daycare') }}" class="nav-link">
+                <a href="{{ url('/daycare') }}" class="nav-link text-dark">
                 <i class="nav-icon fa-solid fa-user"></i>
                   <p>Day Care Info</p>
                 </a>
@@ -63,7 +63,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item" style = "position:relative; left:15px;">
-                <a href="{{ url('addvisit') }}" class="nav-link">
+                <a href="{{ url('addvisit') }}" class="nav-link text-dark">
                 <i class="nav-icon fa-solid fa-user"></i>
                   <p>Create Schedule</p>
                 </a>
@@ -71,7 +71,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item" style = "position:relative; left:15px;">
-                <a href="{{ url('viewvisit') }}" class="nav-link">
+                <a href="{{ url('viewvisit') }}" class="nav-link text-dark">
                 <i class="nav-icon fa-solid fa-user"></i>
                   <p>View Schedule</p>
                 </a>
@@ -79,7 +79,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item" style = "position:relative; left:15px;">
-                <a href="{{ url('approvevisit') }}" class="nav-link">
+                <a href="{{ url('approvevisit') }}" class="nav-link text-dark">
                 <i class="nav-icon fa-solid fa-user"></i>
                   <p>Approve Visit</p>
                 </a>
@@ -93,7 +93,7 @@
           <li class="nav-item">
          
               <li class="nav-item" >
-                <a href="{{ url('/details_daycare') }}" class="nav-link">
+                <a href="{{ url('/details_daycare') }}" class="nav-link text-dark">
                 <i class="nav-icon fa-solid fa-user"></i>
                   <p>View Day Care</p>
                 </a>
