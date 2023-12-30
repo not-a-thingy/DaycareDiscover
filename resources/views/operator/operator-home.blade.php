@@ -33,7 +33,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
  
 
-  <script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
+  //<script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
   <style>
 body {
         background: #e2eaef;
@@ -676,7 +676,7 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-      background: url("img/24488829_xxl.jpg");
+      background: url("../public/img/24488829_xxl.jpg");
   background-position: center center;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
