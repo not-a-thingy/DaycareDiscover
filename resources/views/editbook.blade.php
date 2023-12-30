@@ -13,9 +13,17 @@
                 </ul>
         @endif
 
+        <div class="card" style="width:100%;">
+            <div class="card-header">Day Care:<b> {{$daycare->name}} </b>
+            <span class="float-right">
+                              <a class="btn btn-primary" href="{{ url('/bookvisit/' . $daycare->id) }}">Back</a>
+                          </span>
+            </div>
+        </div>
+
         <h5 class="card-header">Edit Booking</h5>
             <div class="card-body">
-                <form action="{{route('updatebook',$id)}}" method="POST" class="ms-auto me-auto" style="width: 500px">
+                <form action="{{route('updatebook', $id, $daycare_id)}}" method="POST" class="ms-auto me-auto" style="width: 500px">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">

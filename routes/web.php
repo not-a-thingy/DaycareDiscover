@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/bookvisit', [BookVisitController::class,'bookvisit'])->name('bookvisit');
+Route::get('/bookvisit/{id}', [BookVisitController::class,'bookvisit'])->name('bookvisit');
 Route::post('/bookvisit', [BookVisitController::class,'bookvisitPost'])->name('bookvisit.post');
 Route::post('/availTime', [BookVisitController::class,'availTime'])->name('availTime');
-Route::get('/editbook/{id}', [BookVisitController::class,'edit'])->name('editbook');
+Route::get('/editbook/{id}/{daycare_id}', [BookVisitController::class,'edit'])->name('editbook');
 Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
 Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');
 Route::post('/comments', [CommentsController::class, 'store']);

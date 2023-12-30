@@ -5,16 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Bookvisit;
 use App\Models\Addvisit;
+use App\Models\DayInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookVisitController extends Controller
 {
-    function bookvisit(){
+    /*function bookvisit(){
         $books = Bookvisit::orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
         $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
+
         return view('bookvisit', compact('books', 'availDate'));
-    }
+    }*/
+
+    public function bookvisit($id)
+{
+    $daycare = DayInfo::find($id);
+    $user_id = Auth::id();
+    $books = Bookvisit::where('daycare_id', $id)->where('user_id', $user_id)->orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
+    $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
+    // other code...
+    return view('bookvisit', compact('books', 'availDate', 'daycare'));
+}
     
     public function availTime(Request $request)
 {
@@ -31,23 +43,38 @@ class BookVisitController extends Controller
             'time' => 'required'
         ]);
 
-        $data['date'] = $request->date;
-        $data['time'] = $request->time;
-        $bookvisit = Bookvisit::create($data);
-        if(!$bookvisit){
-            return redirect(route('bookvisit'))->with('error','Please try again');
+        $bookVisit = new BookVisit;
+        $bookVisit->user_id = Auth::id();
+        $bookVisit->daycare_id = $request->daycare_id;
+        // Assign other booking details from the form
+        
+        $bookVisit['date'] = $request->date;
+        $bookVisit['time'] = $request->time;
+        $bookVisit->save();
+        if(!$bookVisit){
+            return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('error','Please try again');
         }
-        return redirect(route('bookvisit'))->with('success','Please wait for approval'); 
+        return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('success','Please wait for approval'); 
 }
 
-    function edit($id){
+    function edit(Request $request, $id, $daycare_id){
+
+        $daycare = DayInfo::find($daycare_id);
+        $bookVisit = new BookVisit;
+        $bookVisit->user_id = Auth::id();
+        $bookVisit->daycare_id = $request->daycare_id;
         $books = Bookvisit::find($id);
         
         $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
-        return view('editbook', compact('books','id','availDate'));
+        return view('editbook', ['id' => $id, 'daycare_id' => $daycare_id, 'daycare' => $daycare, 'books' => $books, 'availDate' => $availDate, 'bookVisit' => $bookVisit]);
     }
 
     function update(Request $request, $id){
+
+        $bookVisit = new BookVisit;
+        $bookVisit->user_id = Auth::id();
+        $bookVisit->daycare_id = $request->daycare_id;
+        
         $this->validate($request, [
             'date'=> 'required',
             'time'=> 'required'
@@ -56,13 +83,23 @@ class BookVisitController extends Controller
         $books->date = $request->get('date');
         $books->time = $request->get('time');
         $books->save();
-        return redirect(route('bookvisit'))->with('success','Booking Has Been Updated');
+        if(!$books){
+            return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('error','Please try again');
+        }
+        return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('success','Booking Has Been Updated');
     }
 
-        function cancel($id){
+        function cancel(Request $request, $id){
+            $bookVisit = new BookVisit;
+            $bookVisit->user_id = Auth::id();
+            $bookVisit->daycare_id = $request->daycare_id;
+
             $books = Bookvisit::find($id);
             $books->delete();
-            return redirect(route('bookvisit'))->with('success','Booking Cancelled');
+            if(!$books){
+            return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('error','Please try again');
+            }
+        return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('success','Booking Cancelled');
         }
 
         function approvevisit(){

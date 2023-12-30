@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Day Care Info</h1>
+          <h1 class="m-0">Book to visit day care center</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
@@ -33,23 +33,22 @@
   <!-- /.content-header -->
   <div class="container" style= "width:100%;">
 <div class="card" style="width:100%;">
-  <div class="card-header">Day Care View Page
+  <div class="card-header">Day Care:<b> {{$daycare->name}} </b>
   <span class="float-right">
-                    <a class="btn btn-primary" href="{{ url('') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ url('/details_daycare/' . $daycare->id . '/show') }}">Back</a>
                 </span>
   </div>
-  </div>
+</div>
   
-  <div class="card-body">
-  
+  <div class="card" style="width:100%;">
         <div class="card-body">
-
             <div class="container mt-3">
                 <div class="card">
-                    <h5 class="card-header">Book To Visit Daycare Facility </h5>
+                    <h5 class="card-header"> </h5>
                     <div class="card-body">
                         <form action="{{ route('bookvisit.post') }}" method="POST" id="book_visit" class="ms-auto me-auto" style="width: 500px">
                             @csrf
+                            <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
                             <div class="mb-3">
                                 <label for="VisitDate" class="form-label">Date</label>
                                 <select class="form-select" name="date" id="date" aria-label="Default select example">
@@ -132,10 +131,10 @@
                                     <td></td>
                                 
                                 @elseif($row['status']=='pending')
-                                <td><a href="{{route('editbook',$row['id'])}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
+                                <td><a href="{{route('editbook',['id' => $row['id'], 'daycare_id' => $daycare->id])}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
                                 <td><form method="POST" id="delete_form_{{$row['id']}}" class="delete_form" action="{{route('cancelbook',$row['id'])}}">
                                     @csrf
-                                    
+                                    <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
                                     <button type="submit" form="delete_form_{{$row['id']}}" class="btn btn-danger" onclick="return confirm('Do you really want to cancel it?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Cancel</button>                   
                                 </td></form>
                                 @endif

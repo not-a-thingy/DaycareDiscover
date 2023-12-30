@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookvisits', function (Blueprint $table) {
-            $table->id();
-            $table->date('date');
-            $table->time('time');    
-            $table->boolean('is_booked')->default(false);
+        Schema::create('book_visit', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('daycare_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('daycare_id')->references('id')->on('daycare');
+
+            $table->string('date');
+            $table->string('time');               
             $table->string('status')->default('pending'); // 'pending', 'approved', 'rejected'    
             $table->timestamps();
         });
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookvisits');
+        Schema::dropIfExists('book_visit');
     }
 };
