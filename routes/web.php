@@ -31,16 +31,6 @@ Route::post('/availTime', [BookVisitController::class,'availTime'])->name('avail
 Route::get('/editbook/{id}', [BookVisitController::class,'edit'])->name('editbook');
 Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
 Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');
-Route::get('/addvisit', [Addvisitcontroller::class,'addvisit'])->name('addvisit');
-Route::post('/addvisit', [Addvisitcontroller::class,'addvisitPost'])->name('addvisit.post');
-Route::get('/viewvisit', [Addvisitcontroller::class,'viewvisit'])->name('viewvisit');
-Route::get('/editvisit/{id}', [Addvisitcontroller::class,'edit'])->name('editvisit');
-Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
-Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
-Route::get('/approvevisit', [BookVisitController::class,'approvevisit'])->name('approvevisit');
-Route::get('/approvalvisit/{id}', [BookVisitController::class,'editapprove'])->name('approvalvisit');
-Route::put('/approvalvisit/{id}', [BookVisitController::class,'approvalvisit'])->name('approvalvisit');
-
 Route::post('/comments', [CommentsController::class, 'store']);
 Route::get('/comments', [CommentsController::class, 'index']);
 
@@ -94,6 +84,15 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
 Route::group(['middleware' => ['auth', 'role:2']], function () {
     Route::get('/daycare/{user}/edit', [DayCareInfoController::class, 'edit'])->name('operator.daycare.edit');
     Route::patch('/daycare/{user}/update', [DayCareInfoController::class, 'update'])->name('operator.daycare.update');
+    Route::get('/addvisit', [Addvisitcontroller::class,'addvisit'])->name('addvisit');
+    Route::post('/addvisit', [Addvisitcontroller::class,'addvisitPost'])->name('addvisit.post');
+    Route::get('/viewvisit', [Addvisitcontroller::class,'viewvisit'])->name('viewvisit');
+    Route::get('/editvisit/{id}', [Addvisitcontroller::class,'edit'])->name('editvisit');
+    Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
+    Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
+    Route::get('/approvevisit', [BookVisitController::class,'approvevisit'])->name('approvevisit');
+    Route::get('/approvalvisit/{id}', [BookVisitController::class,'editapprove'])->name('approvalvisit');
+    Route::put('/approvalvisit/{id}', [BookVisitController::class,'approvalvisit'])->name('approvalvisit');
 });
 
 
