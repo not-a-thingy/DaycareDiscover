@@ -680,24 +680,17 @@ legend {
   background-position: center center;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
-
+  backdrop-filter: brightness(0.1);
  
   padding: 15px;
 }
-
-.s01 img{
-  position:absolute;
-}
-
 
 
 
 
 .s01 form {
   width: 100%;
-  margin-left:220px;
-  z-index:1;
-  max-width: 1090px;
+  max-width: 1290px;
 }
 
 .s01 form legend {
@@ -897,10 +890,8 @@ legend {
         </div>
     
   </nav>
- 
-  <div class="s01">
-    <img src="{{ asset('img/24488829_xxl.jpg') }}" style="width:100%; height:100% z-index:-1;" alt="">
-   
+
+  <div class="s01" >
       <form>
         <fieldset>
           <legend style="font-size: 50px;text-align:center;">Discover the Amazing Day Care</legend>
@@ -917,13 +908,19 @@ legend {
           </div>
         </div>
       </form>
-      
     </div>
-   
+
     <br><br>
 
     
- 
+ <div style="margin-top: 450px;" class="container-xl">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Featured <b>Day Care</b></h2>
+			
+		</div>
+		</div>
+	</div>
 </div>
 
   <!-- /.navbar -->
