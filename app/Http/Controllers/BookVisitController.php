@@ -71,9 +71,7 @@ class BookVisitController extends Controller
 
     function update(Request $request, $id){
 
-        $bookVisit = new BookVisit;
-        $bookVisit->user_id = Auth::id();
-        $bookVisit->daycare_id = $request->daycare_id;
+
         
         $this->validate($request, [
             'date'=> 'required',
@@ -84,9 +82,9 @@ class BookVisitController extends Controller
         $books->time = $request->get('time');
         $books->save();
         if(!$books){
-            return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('error','Please try again');
+            return redirect(route('bookvisit', ['id' => $books->daycare_id]))->with('error','Please try again');
         }
-        return redirect(route('bookvisit', ['id' => $bookVisit->daycare_id]))->with('success','Booking Has Been Updated');
+        return redirect(route('bookvisit', ['id' => $books->daycare_id]))->with('success','Booking Has Been Updated');
     }
 
         function cancel(Request $request, $id){
