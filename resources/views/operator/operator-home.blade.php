@@ -891,7 +891,7 @@ legend {
     
   </nav>
 
-  <div class="s01">
+  <div class="s01" >
       <form>
         <fieldset>
           <legend style="font-size: 50px;text-align:center;">Discover the Amazing Day Care</legend>
