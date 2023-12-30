@@ -13,13 +13,21 @@ class Bookvisit extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = "testvisit";
+    protected $table = "book_visit";
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = ['date', 'time', 'is_booked', 'status'];
+    protected $fillable = ['date', 'time', 'status'];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function daycare() {
+        return $this->belongsTo(DayInfo::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

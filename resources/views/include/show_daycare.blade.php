@@ -39,7 +39,17 @@
   </div>
   </div>
   
-  <div class="card-body">
+  <div class="card" style="width:100%;">
+
+    <div class="card" style="width:100%;">
+      <div class="card-header">
+        @if (Auth::user()->role == '0')
+        <span class="float-right">
+          <a class="btn btn-primary" href="{{ url('/bookvisit/' . $course->id) }}">Book a visit</a>
+        </span>
+        @endif
+      </div>
+    </div>
   
         <div class="card-body">
         <h5 class="card-text">Name: {{ $course->name }}</h5>
