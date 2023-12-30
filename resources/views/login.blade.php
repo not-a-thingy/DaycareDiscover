@@ -88,11 +88,21 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/style1.css">
     <style>
+<<<<<<< HEAD
    body, html {
     background: url('img/bg.jpg');
 }
     
 </style>
+=======
+  body, html {
+    background: url('img/bg.jpg');
+}
+
+
+</style>
+
+>>>>>>> 29dbcbddade55e87b4854d60f61b93fe9e48b9c3
 </head>
 <body>
 

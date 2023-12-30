@@ -33,7 +33,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
  
 
-  <script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
+  //<script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
   <style>
 body {
         background: #e2eaef;
@@ -676,9 +676,9 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-     
-      background-color: transparent;
-
+      background: url("../public/img/24488829_xxl.jpg");
+  background-position: center center;
+  background-size: cover;
   font-family: 'Poppins', sans-serif;
 
  
@@ -687,6 +687,8 @@ legend {
 
 .s01 img{
   position:absolute;
+  top:20;
+  left:0;
 }
 
 
@@ -836,68 +838,10 @@ legend {
     </style>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed bg-light">
-<div class="wrapper">
+
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      
-    </ul>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="#">DayCare<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item dropdown dmenu">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            {{ Auth::user()->name }}
-            </a>
-            <div class="dropdown-menu sm-menu">
-              <a class="dropdown-item" href="{{ url('/users') }}">Profile</a>
-                     
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                
-
-                                    
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-            
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Call</a>
-          </li>
-       
-          </ul>
-          <div class="social-part">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </div>
-        </div>
-    
-  </nav>
- 
+  
   <div class="s01">
     <img src="{{ asset('img/24488829_xxl.jpg') }}" style="width:100%; height:100% z-index:-1;" alt="">
    
@@ -922,7 +866,7 @@ legend {
    
     <br><br>
 
-    <div style="margin-top: 700px; margin-left:200px" class="container-xl">
+    <div style="margin-top: 600px; margin-left:200px" class="container-xl">
 	<div class="row" >
 		<div class="col-md-10 m-auto">
 			<h2>Featured <b>Day Care</b></h2>
@@ -974,8 +918,10 @@ legend {
 </div>
 
     
+
+    
  
-</div>
+
 
   <!-- /.navbar -->
 
