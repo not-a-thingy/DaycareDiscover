@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\DayInfo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Sortable;
 
@@ -20,7 +21,9 @@ class DayCareInfoController extends Controller
             // If not an admin, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
-        $course = DayInfo::orderBy('id', 'asc')->get();
+
+        $user = Auth::user();
+        $course = DayInfo::orderBy('id', 'asc')->where('id_daycare', $user->id)->get();
       return view ('operator.daycare.index', compact ('course'));
     }
 
@@ -81,6 +84,7 @@ class DayCareInfoController extends Controller
                 'address' => $request->input('address'),
                 'facilities' => $request->input('facilities'),
                 'rating' => $request->input('rating'),
+            
             ]);
         } else {
             // No new image selected, update other fields without changing the image field
@@ -107,16 +111,19 @@ class DayCareInfoController extends Controller
             'address' => 'required|string',
             'facilities' => 'required|string',
             'rating' => 'required|numeric|min:1|max:5',
+            
         ]);
 
+        $user = Auth::user();
         if ($request->hasFile('img')) {
             $fileName = time().$request->file('img')->getClientOriginalName();
             $path = $request->file('img')->storeAs('daycare_images', $fileName, 'public');
             $requestData["img"] = 'public/'.$path;
             
-    
+         
         // Handle image upload
         DayInfo::create([
+            'id_daycare' => $user->id, 
             'img' => $requestData['img'], 
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -124,6 +131,7 @@ class DayCareInfoController extends Controller
             'address' => $request->input('address'),
             'facilities' => $request->input('facilities'),
             'rating' => $request->input('rating'),
+           
         ]);
 
         return redirect('daycare')->with('flash_message', 'Daycare information has been added successfully.');

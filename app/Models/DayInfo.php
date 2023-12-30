@@ -16,6 +16,7 @@ class DayInfo extends Model
     protected $table = 'daycare';
     protected $primaryKey = 'id';
     protected $fillable = [
+    'id_daycare',
     'name',
      'contact',
      'email',
