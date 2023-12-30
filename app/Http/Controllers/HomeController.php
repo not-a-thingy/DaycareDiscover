@@ -52,8 +52,8 @@ class HomeController extends Controller
             // If not an operator, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
-
-        return view('operator.operator-home');
+        $data = DayInfo::where('verify', 1)->orderBy('id', 'asc')->paginate(30);
+        return view('operator.operator-home', compact ('data'));
     }
 
     private function redirectToRole($role)

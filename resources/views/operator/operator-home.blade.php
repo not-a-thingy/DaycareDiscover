@@ -922,6 +922,57 @@ legend {
    
     <br><br>
 
+    <div style="margin-top: 700px; margin-left:200px" class="container-xl">
+	<div class="row" >
+		<div class="col-md-10 m-auto">
+			<h2>Featured <b>Day Care</b></h2>
+			<div id="myCarousel" style="padding:0;" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+		
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item carousel-item active">
+					<div class="row " >
+            
+                    @foreach($data as $card)
+						<div class="col-sm-4" style="margin-bottom:30px; ">
+							<div class="thumb-wrapper">
+								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+								<div class="img-box" >
+									<img style="width:100%; height:100%; object-fit:cover;" src="{{ Storage::url($card->img)  }}" class="img-fluid" alt="">									
+								</div>
+								<div class="thumb-content">
+									<h4 style="color:black;">{{ $card->name }}</h4>
+                                    <p class="card-text">{{ $card->contact }}</p>
+                                    <p class="card-text">{{ $card->email }}</p>								
+									<div class="star-rating">
+                                        <ul class="list-inline">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $card->rating)
+                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                @else
+                                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                @endif
+                                            @endfor
+                                        </ul>
+                                    </div>
+                                                                        
+									<a href="{{ url('/details_daycare/' . $card->id . '/show') }}" class="btn btn-primary">Learn More</a>
+								</div>						
+							</div>
+						</div>
+                        @endforeach
+          
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			
+		</div>
+		</div>
+	</div>
+</div>
+
     
  
 </div>

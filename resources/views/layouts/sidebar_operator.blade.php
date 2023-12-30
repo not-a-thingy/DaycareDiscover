@@ -89,17 +89,7 @@
             
           </li>
 
-             
-          <li class="nav-item">
-         
-              <li class="nav-item" >
-                <a href="{{ url('/details_daycare') }}" class="nav-link text-dark">
-                <i class="nav-icon fa-solid fa-user"></i>
-                  <p>View Day Care</p>
-                </a>
-              </li>
-          
-          </li>
+     
           
          
       </nav>
