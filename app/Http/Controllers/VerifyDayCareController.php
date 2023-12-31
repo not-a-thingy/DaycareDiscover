@@ -28,8 +28,8 @@ class VerifyDayCareController extends Controller
             // If not an admin, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
-        $course = DayInfo::find($id);
-        return view('admin.verify.show')->with('course', $course);
+        $user = DayInfo::find($id);
+        return view('admin.verify.show')->with('user', $user);
     }
 
     
