@@ -84,6 +84,8 @@ class DayCareInfoController extends Controller
                 'address' => $request->input('address'),
                 'facilities' => $request->input('facilities'),
                 'rating' => $request->input('rating'),
+                'lisence' =>  $request->input('license'),
+                'landmark' =>  $request->input('landmark'),
             
             ]);
         } else {
@@ -111,6 +113,8 @@ class DayCareInfoController extends Controller
             'address' => 'required|string',
             'facilities' => 'required|string',
             'rating' => 'required|numeric|min:1|max:5',
+            'lisence' =>  'required|string',
+            'landmark' => 'required|string',
             
         ]);
 
@@ -131,6 +135,8 @@ class DayCareInfoController extends Controller
             'address' => $request->input('address'),
             'facilities' => $request->input('facilities'),
             'rating' => $request->input('rating'),
+            'lisence' => $request->input('lisence'),
+            'landmark' => $request->input('landmark'),
            
         ]);
 

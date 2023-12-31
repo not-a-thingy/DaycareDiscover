@@ -54,8 +54,16 @@
 <label>Address</label><br>
 <input type="text" name="address" id="address" class="form-control" required><br>
 
+<label>License</label><br>
+<input type="text" name="lisence" id="address1" class="form-control" required><br>
+
+<label>Landmark</label><br>
+<input type="text" name="landmark" id="address2" class="form-control" required><br>
+
 <label>Facility</label><br>
-<input type="text" name="facilities" id="facilities" class="form-control" required><br>
+<textarea rows="2" name="facilities" id="facilities" class="form-control" required></textarea>
+
+
 
 <label>Rating</label><br>
 <input type="number" name="rating" min="1" max="5" default="5" id="rating" class="form-control" required><br>

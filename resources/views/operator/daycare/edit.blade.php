@@ -83,15 +83,24 @@
             <label for="address">Address:</label>
             <input type="text" name="address" value="{{ old('address', $user->address) }}" class="form-control" placeholder="Address">
         </div>
+
+        <div style="margin-top:20px" class="form-group">
+            <label for="address">License:</label>
+            <input type="text" name="lisence" value="{{ old('lisense', $user->lisence) }}" class="form-control" placeholder="License">
+        </div>
+        <div style="margin-top:20px" class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" name="landmark" value="{{ old('landmark', $user->landmark) }}" class="form-control" placeholder="Landmark">
+        </div>
         
         <div style="margin-top:20px" class="form-group">
             <label for="facilities">Facility:</label>
-            <input type="text" name="facilities" value="{{ old('facilities', $user->facilities) }}" class="form-control" placeholder="Facility">
+            <textarea  name="facilities" rows='3' class="form-control" >{{ old('facilities', $user->facilities) }}</textarea>
         </div>
 
         <div style="margin-top:20px" class="form-group">
             <label for="rating">Rating:</label>
-            <input type="number" name="rating" value="{{ old('rating', $user->rating) }}" class="form-control" placeholder="Facility">
+            <input type="number" name="rating" value="{{ old('rating', $user->rating) }}" class="form-control" >
         </div>
 
 

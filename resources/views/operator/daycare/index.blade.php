@@ -50,7 +50,8 @@
                                     <th>Email</th>
                                     <th>Contact</th>
                                     <th width="170px">Address</th>
-                                   
+                                    <th>License</th>
+                                    <th>Landmark</th>
                                     <th>Rate</th> 
                                     <th>Verify</th>               
                                     <th>Actions</th>
@@ -65,7 +66,8 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->contact }}</td>
                                         <td width="170px">{{ $item->address }}</td>
-                                          
+                                        <td>{{ $item->lisence }}</td>
+                                        <td>{{ $item->landmark }}</td>
                                         <td>{{$item->rating}}</td>
                                         <td> <div class="action-buttons d-flex">
                                             <?php if($item->verify == '0'){
