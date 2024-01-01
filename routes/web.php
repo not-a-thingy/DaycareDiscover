@@ -63,6 +63,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('/admin/user', UserAdminController::class);
     Route::resource('daycare', DayCareInfoController::class);
+    Route::get('/parent/daycares', [ReviewController::class, 'index'])->name('parent.view_daycares');
+    Route::get('/parent/create_review/{daycare}', [ReviewController::class, 'create'])->name('parent.create_review');
+    Route::post('/parent/add_review', [ReviewController::class, 'store'])->name('parent.add_review');
+
+    Route::get('/parent/edit_review/{daycare}', [ReviewController::class, 'edit'])->name('parent.edit_review');
+    Route::put('/parent/update_rview/{review}', [ReviewController::class, 'update'])->name('parent.update_review');
+
+    Route::delete('/parent/delete_rview/{review}', [ReviewController::class, 'delete'])->name('parent.delete_review');
    
   
 });
