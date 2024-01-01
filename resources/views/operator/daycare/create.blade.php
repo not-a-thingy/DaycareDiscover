@@ -36,7 +36,9 @@
   </div>
   <div class="card-body">
       
-      <form action="{{ url('daycare') }}" method="post" enctype="multipart/form-data">
+  <form action="{{ route('daycare.store') }}" method="post" enctype="multipart/form-data">
+
+
         {!! csrf_field() !!}
 
  <label>Image</label><br>

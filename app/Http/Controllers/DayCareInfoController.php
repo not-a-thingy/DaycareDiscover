@@ -140,6 +140,10 @@ class DayCareInfoController extends Controller
            
         ]);
 
+        $imageName = $request->file('img')->hashName();
+
+        $request->file('img')->storeAs('public/daycare', $imageName);
+
         return redirect('daycare')->with('flash_message', 'Daycare information has been added successfully.');
     } else {
         return redirect('daycare')->with('error', 'Image upload failed.');
