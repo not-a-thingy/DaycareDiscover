@@ -67,6 +67,21 @@ Route::group(['middleware' => ['auth']], function() {
   
 });
 
+Route::group(['middleware' => ['auth']], function() {
+    // Route::resource('users', UserController::class);
+    Route::resource('/admin/user', UserAdminController::class);
+    Route::resource('daycare', DayCareInfoController::class);
+    Route::get('/parent/daycares', [App\Http\Controllers\ViewDayCareController::class, 'indexByParent'])->name('parent.view_daycares');
+    Route::get('/parent/create_review/{daycare}', [App\Http\Controllers\ReviewController::class, 'create'])->name('parent.create_review');
+    Route::post('/parent/add_review', [App\Http\Controllers\ReviewController::class, 'store'])->name('parent.add_review');
+
+    Route::get('/parent/edit_review/{daycare}', [App\Http\Controllers\ReviewController::class, 'edit'])->name('parent.edit_review');
+    Route::put('/parent/update_rview/{review}', [App\Http\Controllers\ReviewController::class, 'update'])->name('parent.update_review');
+
+    Route::delete('/parent/delete_rview/{review}', [App\Http\Controllers\ReviewController::class, 'delete'])->name('parent.delete_review');
+
+  
+});
 Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/admin/verify/daycares', [VerifyDayCareController::class, 'index'])->name('admin.verify.verify');
     Route::get('/admin/verify/daycares/{user}/show', [VerifyDayCareController::class, 'show'])->name('admin.verify.show');
