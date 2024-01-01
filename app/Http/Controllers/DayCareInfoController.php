@@ -34,7 +34,9 @@ class DayCareInfoController extends Controller
             // If not an admin, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
-        return view('operator.daycare.create');
+
+        $imageName = '';
+        return view('operator.daycare.create', compact('imageName'));
     }
  
   

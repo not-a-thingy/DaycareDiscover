@@ -886,7 +886,7 @@ legend {
 							<div class="thumb-wrapper">
 								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
 								<div class="img-box" >
-									<img style="width:100%; height:100%; object-fit:cover;" src="{{ Storage::url($card->img)  }}" class="img-fluid" alt="Daycare Image">									
+									<img style="width:100%; height:100%; object-fit:cover;" src="{{ isset($imageName) ? Storage::url('public/daycare/' . $imageName) : '' }}" class="img-fluid" alt="Daycare Image">									
 								</div>
 								<div class="thumb-content">
 									<h4 style="color:black;">{{ $card->name }}</h4>
