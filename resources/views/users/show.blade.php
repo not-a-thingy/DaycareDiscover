@@ -35,21 +35,23 @@
                 <strong>Address:</strong> {{ $user->address }}
             </div>
             <div class="mb-3">
-                <strong>Appoinment Date:</strong> <?php if($user -> ap_date == NULL){
-                    echo 'Not Available';
-                }else{
-                    echo $user -> ap_date;
-                } ?>
-            </div>
-            <div class="mb-3">
-                <strong>Role:</strong>  <?php if($user->role == 1){
-                                        echo 'Admin';
-                                    }else if($user->role == 2) {
-                                        echo 'Operator';
-                                    }else{
-                                        echo 'Parent';
-                                    }?>
-            </div>
+    <?php if ($user->role == 0): ?>
+        <strong>Appointment Date:</strong> <?php echo $user->ap_date ?: 'Not Available'; ?>
+    <?php endif; ?>
+</div>
+
+<div class="mb-3">
+    <strong>Role:</strong>
+    <?php
+    if ($user->role == 1) {
+        echo 'Admin';
+    } elseif ($user->role == 2) {
+        echo 'Operator';
+    } else {
+        echo 'Parent';
+    }
+    ?>
+</div>
         </div>
         <div class="card-footer text-end">
             <a href="{{ route('users.editt', $user->id) }}" class="btn btn-primary">Edit Profile</a>
