@@ -48,7 +48,7 @@
 
   <div class="card-body">
 
-  <form method="POST" action="{{ route('operator.daycare.update', $user->id) }}">
+  <form method="POST" action="{{ route('operator.daycare.update', $user->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -85,11 +85,20 @@
         </div>
 
         <div style="margin-top:20px" class="form-group">
-            <label for="address">License:</label>
-            <input type="text" name="lisence" value="{{ old('lisense', $user->lisence) }}" class="form-control" placeholder="License">
+            <label for="address">Current License:</label>
+            <img src="{{ Storage::url($user->lisence)  }}" alt="Current Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
         </div>
+
         <div style="margin-top:20px" class="form-group">
-            <label for="address">Address:</label>
+            <label for="lisence">License:</label>
+            <input type="file"  name="lisence" class="form-control" placeholder="Image">
+        </div>
+
+      
+
+
+        <div style="margin-top:20px" class="form-group">
+            <label for="address">landmark:</label>
             <input type="text" name="landmark" value="{{ old('landmark', $user->landmark) }}" class="form-control" placeholder="Landmark">
         </div>
         

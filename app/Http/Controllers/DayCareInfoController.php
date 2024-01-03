@@ -73,10 +73,16 @@ class DayCareInfoController extends Controller
         $dayInfo = DayInfo::findOrFail($id);
     
         // Check if a new image has been uploaded
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('img') && $request->hasFile('lisence')) {
             // Upload the new image
             $imagePath = $request->file('img')->store('daycare_images', 'public');
             $requestData["img"] = $imagePath;
+            
+
+            $filelicense = time().$request->file('lisence')->getClientOriginalName();
+            $pathlicense = $request->file('lisence')->storeAs('license_images', $filelicense, 'public');
+            $requestData["lisence"] = 'public/'.$pathlicense;
+
             // Update the image field in the database
             $dayInfo->update([
                 'img' =>  $requestData["img"] ,
@@ -86,13 +92,34 @@ class DayCareInfoController extends Controller
                 'address' => $request->input('address'),
                 'facilities' => $request->input('facilities'),
                 'rating' => $request->input('rating'),
-                'lisence' =>  $request->input('license'),
+                'lisence' =>  $requestData["lisence"],
                 'landmark' =>  $request->input('landmark'),
             
+            ]);       
+    
+        }else if($request->hasFile('lisence')){
+
+            $filelicense = time().$request->file('lisence')->getClientOriginalName();
+            $pathlicense = $request->file('lisence')->storeAs('license_images', $filelicense, 'public');
+            $requestData["lisence"] = 'public/'.$pathlicense;
+
+            // Update the image field in the database
+            $dayInfo->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'contact' => $request->input('contact'),
+                'address' => $request->input('address'),
+                'facilities' => $request->input('facilities'),
+                'rating' => $request->input('rating'),
+                'lisence' =>  $requestData["lisence"],
+                'landmark' =>  $request->input('landmark'),
             ]);
-        } else {
-            // No new image selected, update other fields without changing the image field
-            $dayInfo->update($request->except('img'));
+
+           
+        }else {
+            dd($dayInfo);
+
+            $dayInfo->update($request->except('img' , 'lisence'));
         }
     
         return redirect('daycare')->with('flash_message', 'Daycare information has been updated successfully.');
@@ -115,7 +142,7 @@ class DayCareInfoController extends Controller
             'address' => 'required|string',
             'facilities' => 'required|string',
             'rating' => 'required|numeric|min:1|max:5',
-            'lisence' =>  'required|string',
+            'lisence' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'landmark' => 'required|string',
             
         ]);
@@ -126,7 +153,10 @@ class DayCareInfoController extends Controller
             $path = $request->file('img')->storeAs('daycare_images', $fileName, 'public');
             $requestData["img"] = 'public/'.$path;
             
-         
+            $filelicense = time().$request->file('lisence')->getClientOriginalName();
+            $pathlicense = $request->file('lisence')->storeAs('license_images', $filelicense, 'public');
+            $requestData["lisence"] = 'public/'.$pathlicense;
+
         // Handle image upload
         DayInfo::create([
             'id_daycare' => $user->id, 
@@ -137,7 +167,7 @@ class DayCareInfoController extends Controller
             'address' => $request->input('address'),
             'facilities' => $request->input('facilities'),
             'rating' => $request->input('rating'),
-            'lisence' => $request->input('lisence'),
+            'lisence' => $requestData['lisence'],
             'landmark' => $request->input('landmark'),
            
         ]);
