@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Daycare Discover</title>
+    <title>Daycare Discover | Register </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -103,7 +103,7 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 style="font-family:verdana" class="form-title">Register</h2>
-                    <form method="POST" action="{{ route('register') }}" class="register-form" enctype="multipart/form-data">
+                    <form id="registrationForm" method="POST" action="{{ route('register') }}" class="register-form" enctype="multipart/form-data">
                     @csrf
 
                     <!--div class="form-group">
@@ -173,7 +173,7 @@
                         <div class="form-group">
                             <label for="password" class="col-md-4 col-form-label text-md-end"></label>
                             <div class="col-md-6"  style="padding:0;">
-                                <input  style=" width:278px; font-family:verdana;" id="password" type="password" placeholder= "Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input  style=" width:278px; font-family:verdana;" id="password" type="password" placeholder= "Password (Min 8 characters)" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -188,14 +188,24 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end"></label>
 
                             <div class="col-md-6" style="padding:0;">
+                            
                                 <input  style="margin:0; width:278px; font-family:verdana;" id="password-confirm" type="password" placeholder= "Password Confirmation" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        
+                        <div class="form-group">
+                        <div class="form-group">
+                        <input type="checkbox" name="terms_and_conditions" id="terms_and_conditions" class="@error('terms_and_conditions') is-invalid @enderror" required>
+                                <label  for="terms_and_conditions" class="label-agree-term"><span><span></span></span>I agree to the<a href="javascript:void(0);" onclick="openTermsModal()"> Terms and Conditions</a></label>
+                                @error('terms_and_conditions')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+                            </div>  
                          
                        
                         <div class="form-group form-button">
-                            <button style="border:none" type="submit" class="form-submit"  class="form-group form-button">Register</button>
+                            <button style="border:none" type="submit" class="form-submit" id="registerButton" class="form-group form-button" disabled>Register</button>
                         </div>
                     </form>
                 </div>
@@ -214,22 +224,52 @@
 <script src="js/main.js"></script>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setname();
 
-   function setname(){
-    let name = document.getElementById('role').value;
-    let username = document.getElementById('name');
+        document.getElementById('terms_and_conditions').addEventListener('change', function () {
+            setname();
+      //      toggleRegisterButton();
+        });
+        document.getElementById('registerButton').addEventListener('click', function (event) {
+            if (!document.getElementById('terms_and_conditions').checked) {
+                alert("Please check the Terms and Conditions box before registering.");
+                event.preventDefault();
+            }
+        });
+    });
 
-    if(name == 0){
-        username.placeholder = "Your Name";
+    function setname() {
+        let name = document.getElementById('role').value;
+        let username = document.getElementById('name');
+        let termsCheckbox = document.getElementById('terms_and_conditions');
+        let registerButton = document.getElementById('registerButton');
 
-    }else{
-        username.placeholder = "Your DayCare Name";
+        if (name == 0) {
+            username.placeholder = "Your Name";
+        } else {
+            username.placeholder = "Your DayCare Name";
+        }
 
-    }}
+        toggleRegisterButton();
+    }
+
+    function toggleRegisterButton() {
+        let termsCheckbox = document.getElementById('terms_and_conditions');
+        let registerButton = document.getElementById('registerButton');
+
+        registerButton.disabled = !termsCheckbox.checked;
+    }
+
+    function openTermsModal() {
+        var termsUrl = "{{ route('terms') }}";
+        window.open(termsUrl, "Terms and Conditions", "width=600,height=400,resizable=yes,scrollbars=yes");
+    }
 </script>
+
 </body>
 </html>
 </main>
-    </div>
+    </div>  
 </body>
 </html>
