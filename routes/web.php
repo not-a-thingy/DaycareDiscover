@@ -130,3 +130,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', function () {
     return view('login');
 });
+
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
