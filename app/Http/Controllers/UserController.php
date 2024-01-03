@@ -138,6 +138,7 @@ public function update1(Request $request, $id)
         $imagePath = $request->file('image')->store('profile_images', 'public');
         $input['image'] = $imagePath;
     }
+    
     $user = User::find($id);
     $user->update($input);
 
