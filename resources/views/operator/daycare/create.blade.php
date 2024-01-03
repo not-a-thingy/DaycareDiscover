@@ -57,7 +57,7 @@
 <input type="text" name="address" id="address" class="form-control" required><br>
 
 <label>License</label><br>
-<input type="text" name="lisence" id="address1" class="form-control" required><br>
+<input type="file"  accept="image/*" name="lisence" id="address1" class="form-control" required><br>
 
 <label>Landmark</label><br>
 <input type="text" name="landmark" id="address2" class="form-control" required><br>
