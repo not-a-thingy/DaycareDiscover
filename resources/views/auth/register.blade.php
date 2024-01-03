@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Day care</title>
+    <title>Daycare Discover</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -191,6 +191,7 @@
                                 <input  style="margin:0; width:278px; font-family:verdana;" id="password-confirm" type="password" placeholder= "Password Confirmation" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        
                          
                        
                         <div class="form-group form-button">
