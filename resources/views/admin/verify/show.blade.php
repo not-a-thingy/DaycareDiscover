@@ -53,15 +53,11 @@
 <h5 class="card-text">Email: {{ $user->email }}</h5>
 <h5 class="card-text">Contact: {{ $user->contact }}</h5>
 <h5 class="card-text">Address: {{ $user->address }}</h5>
-<label for="">License</label>
-<img src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="...">
-
-<h5 class="card-text">Facility: {{ $user->landmark }}</h5>
 <h5 class="card-text">Facility: {{ $user->facilities }}</h5>
 <h5 class="card-text">Rating: {{ $user->rating }}</h5>
-<h5 class="card-text">Status:  <?php if($user->verify == '0'){
+<h5 class="card-text">Rating:  <?php if($item->verify == '0'){
                                                 $data = 'Pending';
-                                            }else if($user->verify == "1"){
+                                            }else if($item->verify == "1"){
                                                 $data = "Verfied";
                                             } else{
                                                 $data = "Rejected";

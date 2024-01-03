@@ -7,7 +7,7 @@
 
 <!-- Main Sidebar Container -->
 @include('layouts.sidebar_operator')
-<body> 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="height: 100px;">
@@ -36,9 +36,7 @@
   </div>
   <div class="card-body">
       
-  <form action="{{ route('daycare.store') }}" method="post" enctype="multipart/form-data">
-
-
+      <form action="{{ url('daycare') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
 
  <label>Image</label><br>
@@ -56,16 +54,8 @@
 <label>Address</label><br>
 <input type="text" name="address" id="address" class="form-control" required><br>
 
-<label>License</label><br>
-<input type="file"  accept="image/*" name="lisence" id="address1" class="form-control" required><br>
-
-<label>Landmark</label><br>
-<input type="text" name="landmark" id="address2" class="form-control" required><br>
-
 <label>Facility</label><br>
-<textarea rows="2" name="facilities" id="facilities" class="form-control" required></textarea>
-
-
+<input type="text" name="facilities" id="facilities" class="form-control" required><br>
 
 <label>Rating</label><br>
 <input type="number" name="rating" min="1" max="5" default="5" id="rating" class="form-control" required><br>
@@ -75,6 +65,4 @@
   
   </div>
 </div></div>
-
-</body>
 @stop
