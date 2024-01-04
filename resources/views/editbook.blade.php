@@ -28,7 +28,7 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label for="Book_Date" class="form-label">Date</label>
-                        <select class="form-select" name="date" id="date" aria-label="Default select example">
+                        <select class="form-select" name="date" id="date" aria-label="Default select example" style="width:auto; height:auto;">
                             <option selected="true" value="{{$books->date}}">{{$books->date}}</option>
                             @foreach($availDate as $row1)
                             <option value="{{$row1['date']}}">{{$row1['date']}}</option>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="Book_Time" class="form-label">Time</label>
-                        <select class="form-select" name="time" id="time" aria-label="Default select example">
+                        <select class="form-select" name="time" id="time" aria-label="Default select example" style="width:auto; height:auto;">
                             <option selected="true" value="{{$books->time}}">{{$books->time}}</option>
                             <option value="time"><div id="times"></div></option>     
                         </select>
@@ -71,4 +71,5 @@
             </div>
         </div>
     </div>
+</div>  
 @endsection

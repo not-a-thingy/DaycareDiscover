@@ -71,8 +71,6 @@ class BookVisitController extends Controller
 
     function update(Request $request, $id){
 
-
-        
         $this->validate($request, [
             'date'=> 'required',
             'time'=> 'required'
