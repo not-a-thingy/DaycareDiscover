@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Daycare Discover</title>
+    <title>Day care</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,7 +32,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="{{ route('home') }}">Daycare Discover<span class="sr-only">(current)</span></a>
+              <a style="color:black;" class="nav-link" href="home">DayCare<span class="sr-only">(current)</span></a>
             </li>
 
                     </ul>

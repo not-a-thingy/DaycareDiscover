@@ -48,7 +48,7 @@
 
   <div class="card-body">
 
-  <form method="POST" action="{{ route('operator.daycare.update', $user->id) }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('operator.daycare.update', $user->id) }}">
         @csrf
         @method('PATCH')
 
@@ -83,33 +83,15 @@
             <label for="address">Address:</label>
             <input type="text" name="address" value="{{ old('address', $user->address) }}" class="form-control" placeholder="Address">
         </div>
-
-        <div style="margin-top:20px" class="form-group">
-            <label for="address">Current License:</label>
-            <img src="{{ Storage::url($user->lisence)  }}" alt="Current Image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
-        </div>
-
-        <div style="margin-top:20px" class="form-group">
-            <label for="lisence">License:</label>
-            <input type="file"  name="lisence" class="form-control" placeholder="Image">
-        </div>
-
-      
-
-
-        <div style="margin-top:20px" class="form-group">
-            <label for="address">landmark:</label>
-            <input type="text" name="landmark" value="{{ old('landmark', $user->landmark) }}" class="form-control" placeholder="Landmark">
-        </div>
         
         <div style="margin-top:20px" class="form-group">
             <label for="facilities">Facility:</label>
-            <textarea  name="facilities" rows='3' class="form-control" >{{ old('facilities', $user->facilities) }}</textarea>
+            <input type="text" name="facilities" value="{{ old('facilities', $user->facilities) }}" class="form-control" placeholder="Facility">
         </div>
 
         <div style="margin-top:20px" class="form-group">
             <label for="rating">Rating:</label>
-            <input type="number" name="rating" value="{{ old('rating', $user->rating) }}" class="form-control" >
+            <input type="number" name="rating" value="{{ old('rating', $user->rating) }}" class="form-control" placeholder="Facility">
         </div>
 
 

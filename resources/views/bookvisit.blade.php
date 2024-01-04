@@ -14,7 +14,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin:0; height: cover; width:cover; background-image: url('/img/bg.jpg'); background-size: cover; background-repeat: repeat;">
+  <div class="content-wrapper" style="margin:0; height: 100px; width:100%;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container">

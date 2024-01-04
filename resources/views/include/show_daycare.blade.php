@@ -13,7 +13,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin: 0; height: cover; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
+  <div class="content-wrapper" style="margin:0; height: 100px; width:100%;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container">
@@ -38,7 +38,7 @@
                 </span>
   </div>
   </div>
-  
+
   <div class="card" style="width:100%;">
 
     <div class="card" style="width:100%;">
@@ -50,7 +50,7 @@
         @endif
       </div>
     </div>
-  
+
         <div class="card-body">
         <h5 class="card-text">Name: {{ $course->name }}</h5>
 <h5 class="card-text">Email: {{ $course->email }}</h5>
@@ -67,8 +67,9 @@
 
 
   </div>
-  
+
+    </hr>
+
   </div>
-</div>
-</div>
+</div></div>
 @stop

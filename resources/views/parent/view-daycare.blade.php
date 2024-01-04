@@ -8,7 +8,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            check
             <h1 class="m-0">Day Care Info</h1>
           </div><!-- /.col -->
           <div class="col-sm-10">
@@ -77,6 +76,7 @@
     </div></td>
                                    
                                    <td> <div class="action-buttons d-flex">
+          
             @if($item->firstReview())
             <a href="{{ route('parent.edit_review',$item->id) }}" title="Edit Daycare" class="mr-2">
                 <button class="btn btn-primary btn-sm">

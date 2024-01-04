@@ -2,7 +2,6 @@
 
 <html  lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
-  <title>Daycare Discover</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -831,7 +830,7 @@ $('.navbar-light .dmenu').hover(function () {
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="#">Daycare Discover<span class="sr-only">(current)</span></a>
+              <a style="color:black;" class="nav-link" href="#">DayCare<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
@@ -859,6 +858,7 @@ $('.navbar-light .dmenu').hover(function () {
             </div>
           </li>
           <li class="nav-item">
+
             <a class="nav-link" href="#">Contact Us</a>
           </li>
           <li class="nav-item">
@@ -896,7 +896,6 @@ $('.navbar-light .dmenu').hover(function () {
     </div>
   
  <br><br>
-
  <div style="margin-top: 450px;" class="container-xl">
 	<div class="row">
 		<div class="col-md-12">

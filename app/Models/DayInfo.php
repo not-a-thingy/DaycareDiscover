@@ -30,6 +30,15 @@ class DayInfo extends Model
      ];
    
 
+     public function review()
+     {
+         return $this->hasMany(Review::class, 'daycare_id')->latest(); // Add latest() to get the latest review first
+     }
+ 
+     public function firstReview()
+     {
+         return $this->review()->first();
+     }
 }
 
 

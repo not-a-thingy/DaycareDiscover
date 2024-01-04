@@ -88,10 +88,11 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/style1.css">
     <style>
-   body, html {
+  body, html {
     background: url('img/bg.jpg');
 }
-    
+
+
 </style>
 </head>
 <body>
