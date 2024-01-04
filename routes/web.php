@@ -42,10 +42,10 @@ Auth::routes();
 Route::get('/users/{user}/password_change', [UserController::class, 'editpass'])->name('users.editpass');
 Route::patch('/users/{user}/change', [UserController::class, 'change'])->name('users.change');
 
-// Route::get('/users/{user}/editt', [UserController::class, 'editt'])->name('users.editt');
+Route::get('/users/{user}/editt', [UserController::class, 'editt'])->name('users.editt');
 Route::patch('/users/{user}/update1', [UserController::class, 'update1'])->name('users.update1');
 
-// Route::get('/user', [UserController::class, 'index'])->name('users.index');
+Route::get('/user', [UserController::class, 'index'])->name('users.index');
 Route::patch('/user/{user}/edit', [UserController::class, 'update'])->name('users.edit');
 
 Route::get('/details_daycare', [ViewDayCareController::class, 'index'])->name('index');
@@ -114,8 +114,8 @@ Route::group(['middleware' => ['auth', 'role:2']], function () {
     Route::put('/updatevisit/{id}', [Addvisitcontroller::class,'update'])->name('updatevisit');
     Route::post('/deletevisit/{id}', [Addvisitcontroller::class,'remove'])->name('deletevisit');
     Route::get('/approvevisit', [BookVisitController::class,'approvevisit'])->name('approvevisit');
-    // Route::get('/approvalvisit/{id}', [BookVisitController::class,'editapprove'])->name('approvalvisit');
-    // Route::put('/approvalvisit/{id}', [BookVisitController::class,'approvalvisit'])->name('approvalvisit');
+    Route::get('/approvalvisit/{id}', [BookVisitController::class,'editapprove'])->name('approvalvisit');
+    Route::put('/approvalvisit/{id}', [BookVisitController::class,'approvalvisit'])->name('approvalvisit');
 });
 
 
