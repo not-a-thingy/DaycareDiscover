@@ -19,7 +19,15 @@ class Addvisit extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['date', 'time'];
+    protected $fillable = ['date', 'time','daycare'];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function daycare() {
+        return $this->belongsTo(DayInfo::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

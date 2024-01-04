@@ -13,8 +13,8 @@
 <!-- Main Sidebar Container -->
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin:0; height: cover; width:cover; background-image: url('/img/bg.jpg'); background-size: cover; background-repeat: repeat;">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin:0; height: cover; width:cover; background-image: url('/img/bg.jpg'); background-size: cover; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container">
@@ -40,18 +40,18 @@
   </div>
 </div>
   
-  <div class="card" style="width:100%;">
+    <div class="card" style="width:100%;">
         <div class="card-body">
             <div class="container mt-3">
                 <div class="card">
                     <h5 class="card-header"> </h5>
                     <div class="card-body">
-                        <form action="{{ route('bookvisit.post') }}" method="POST" id="book_visit" class="ms-auto me-auto" style="width: 500px">
+                        <form action="{{ route('bookvisit.post') }}" method="POST" id="book_visit" class="ms-auto me-auto" style="width: auto">
                             @csrf
                             <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
                             <div class="mb-3">
                                 <label for="VisitDate" class="form-label">Date</label>
-                                <select class="form-select" name="date" id="date" aria-label="Default select example">
+                                <select class="form-select" name="date" id="date" aria-label="Default select example" style="width:auto; height:auto;">
                                     <option selected="true" disabled="disabled">Select a date</option>
                                     @foreach($availDate as $row1)
                                     <option value="{{$row1['date']}}">{{$row1['date']}}</option>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="time" class="form-label">Time</label>
-                                <select class="form-select" name="time" id="time" aria-label="Default select example">
+                                <select class="form-select" name="time" id="time" aria-label="Default select example" style="width:auto; height:auto;">
                                     <option selected="true" disabled="disabled">Please select a date first</option>                           
                                     <option value="time"><div id="times"></div></option>                   
                                 </select>
@@ -112,7 +112,7 @@
         
                 <div class="card mt-3">
                     <h5 class="card-header">Your Booking Status</h5>
-                    <div class="card-body">
+                    <div class="table-responsive">
         
                         <table class="table table-bordered">
                             <tr>
@@ -132,10 +132,10 @@
                                 
                                 @elseif($row['status']=='pending')
                                 <td><a href="{{route('editbook',['id' => $row['id'], 'daycare_id' => $daycare->id])}}" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></td>
-                                <td><form method="POST" id="delete_form_{{$row['id']}}" class="delete_form" action="{{route('cancelbook',$row['id'])}}">
+                                <td><form method="POST" id="delete_form_{{$row['id']}}" class="delete_form" style="width:auto; height:auto;" action="{{route('cancelbook',$row['id'])}}">
                                     @csrf
                                     <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
-                                    <button type="submit" form="delete_form_{{$row['id']}}" class="btn btn-danger" onclick="return confirm('Do you really want to cancel it?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Cancel</button>                   
+                                    <button type="submit" form="delete_form_{{$row['id']}}" class="btn btn-danger" style="width:auto; height:auto;" onclick="return confirm('Do you really want to cancel it?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Cancel</button>                   
                                 </td></form>
                                 @endif
                             </tr>
@@ -145,8 +145,9 @@
                 </div>
             </div>
 
-  </div>
+    </div>
 
-  </div>
-</div></div>
+    </div>
+</div>
+</div>
 @stop

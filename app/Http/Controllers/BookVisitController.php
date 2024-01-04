@@ -71,8 +71,6 @@ class BookVisitController extends Controller
 
     function update(Request $request, $id){
 
-
-        
         $this->validate($request, [
             'date'=> 'required',
             'time'=> 'required'
@@ -101,7 +99,10 @@ class BookVisitController extends Controller
         }
 
         function approvevisit(){
-            $books = Bookvisit::all()->toArray();
+            $id =  Auth::id();
+            $books = Bookvisit::join('daycare','book_visit.daycare_id',"=",'daycare.id')
+            ->join('users','book_visit.user_id',"=",'users.id')
+            ->where('daycare.id_daycare',$id)->orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
             return view('operator/approvevisit', compact('books'));
           }
   

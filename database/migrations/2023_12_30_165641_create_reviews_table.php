@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('addvisit', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string('time'); 
+            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('daycare_id');
+            $table->text('review_comment');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('addvisit');
+        Schema::dropIfExists('reviews');
     }
 };

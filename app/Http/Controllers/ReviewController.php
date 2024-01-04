@@ -8,15 +8,7 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-
-
     
-  public function index()
-  {
-    $daycares = DayInfo::orderBy('id', 'asc')->paginate(10);  
-    return view('parent.view-daycare')->with('daycares', $daycares);
-  }
-
     public function create($id)
     {
       $daycare = DayInfo::find($id);
@@ -37,7 +29,7 @@ class ReviewController extends Controller
       $review->update([
         'parent_id'=>$request->parent_id,
         'daycare_id'=>$request->daycare_id,
-        'review_comment'=>$request->review_comment,
+        'review_comment'=>$request->review_comment || '',
     ]);
     return redirect()->route('parent.view_daycares')->with('flash_message', 'Daycare review has been updated successfully.');
     }
@@ -45,7 +37,7 @@ class ReviewController extends Controller
     public function edit($daycare)
     {
       $daycare = DayInfo::find($daycare);
-      return view('parent.edit-daycare',['daycare'=>$daycare]);
+      return view('parent.edit-review',['daycare'=>$daycare]);
     }
 
     public function delete($id){

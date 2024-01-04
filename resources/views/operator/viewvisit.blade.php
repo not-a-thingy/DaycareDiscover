@@ -47,6 +47,7 @@
                                     <tr>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th>Daycare</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,6 +57,7 @@
                                     <tr>
                                     <td>{{$row['date']}}</td>
                                     <td>{{$row['time']}}</td>
+                                    <td>{{$row['name']}}</td>
                                     <td><a href="{{route('editvisit',$row['id'])}}">
                                       <button class="btn btn-primary btn-sm">
                                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modify

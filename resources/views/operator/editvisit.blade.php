@@ -39,7 +39,7 @@
         @endif
   <div class="card-header">Update Schedule
   <span class="float-right">
-                    <a class="btn btn-primary" href="{{ url('/daycare') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ url('/viewvisit') }}">Back</a>
                 </span>
   </div>
   <div class="card-body">
@@ -52,6 +52,13 @@
 
         <label for="Visit_Time" class="form-label">Time</label>
         <input type="time" name="time" id="time" class="form-control" value="{{$visits->time}}" required><br>
+
+        <label for="Approval" class="form-label">Daycare</label>
+        <select class="form-select" name="daycare" id="daycare" aria-label="Default select example" disabled>
+        @foreach($daycare as $row1)
+        <option value="{{$row1['id']}}">{{$row1['name']}}</option>
+        @endforeach
+        </select><br>
 
       <input type="submit" value="Edit" class="btn btn-success"></br>
     </form>
