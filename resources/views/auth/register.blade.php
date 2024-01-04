@@ -173,11 +173,7 @@
                         <div class="form-group">
                             <label for="password" class="col-md-4 col-form-label text-md-end"></label>
                             <div class="col-md-6"  style="padding:0;">
-<<<<<<< HEAD
                                 <input  style=" width:278px; font-family:verdana;" id="password" type="password" placeholder= "Password (Minimum 8 characters)" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-=======
-                                <input  style=" width:278px; font-family:verdana;" id="password" type="password" placeholder= "Password (Min 8 characters)" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
->>>>>>> 0fdc938c93a124dd7f1226da68f8893fa5dc8b02
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
