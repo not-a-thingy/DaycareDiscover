@@ -26,11 +26,6 @@ class ViewDayCareController extends Controller
     return view('include.show_daycare')->with('course', $course);
   }
 
-  public function indexByParent(): View
-  {
-    $daycares = DayInfo::orderBy('id', 'asc')->paginate(10);
-    return view('parent.view-daycare', ['daycares' => $daycares]);
-  }
 
 
 

@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Day Care Discover</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Day Care | Oprator Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Day Care Discover | Operator Dashboard</title>
  
   <!-- Google Font: Source S3ans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,19 +15,15 @@
   <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -39,6 +36,13 @@ body {
         background: #e2eaef;
         font-family: "Open Sans", sans-serif;
     }
+
+    @media screen and (max-width: 767px) {
+            /* Add styles specific to smaller screens */
+            .s01 form .inner-form {
+                margin-left: 0;
+            }
+          }
     h2 {
         color: #000;
         font-size: 26px;
@@ -676,21 +680,30 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-      background: url("img/24488829_xxl.jpg");
+      background: url("../public/img/24488829_xxl.jpg");
   background-position: center center;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
-  backdrop-filter: brightness(0.1);
+
  
   padding: 15px;
 }
+
+.s01 img{
+  position:absolute;
+  top:20;
+  left:0;
+}
+
 
 
 
 
 .s01 form {
   width: 100%;
-  max-width: 1290px;
+  margin-left:220px;
+  z-index:1;
+  max-width: 1090px;
 }
 
 .s01 form legend {
@@ -829,69 +842,13 @@ legend {
     </style>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed bg-light">
-<div class="wrapper">
+
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      
-    </ul>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="#">DayCare<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item dropdown dmenu">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            {{ Auth::user()->name }}
-            </a>
-            <div class="dropdown-menu sm-menu">
-              <a class="dropdown-item" href="{{ url('/users') }}">Profile</a>
-                     
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                
-
-                                    
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-            
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Call</a>
-          </li>
-       
-          </ul>
-          <div class="social-part">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </div>
-        </div>
-    
-  </nav>
-
-  <div class="s01" >
+  
+  <div class="s01">
+    <img src="{{ asset('img/24488829_xxl.jpg') }}" style="width:100%; height:100% z-index:-1;" alt="">
+   
       <form>
         <fieldset>
           <legend style="font-size: 50px;text-align:center;">Discover the Amazing Day Care</legend>
@@ -908,20 +865,67 @@ legend {
           </div>
         </div>
       </form>
+      
     </div>
-
+   
     <br><br>
 
-    
- <div style="margin-top: 450px;" class="container-xl">
-	<div class="row">
-		<div class="col-md-12">
+    <div style="margin-top: 600px; margin-left:200px" class="container-xl">
+	<div class="row" >
+		<div class="col-md-10 m-auto">
 			<h2>Featured <b>Day Care</b></h2>
+			<div id="myCarousel" style="padding:0;" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+		
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item carousel-item active">
+					<div class="row " >
+            
+                    @foreach($data as $card)
+						<div class="col-sm-4" style="margin-bottom:30px; ">
+							<div class="thumb-wrapper">
+								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+								<div class="img-box" >
+									<img style="width:100%; height:100%; object-fit:cover;" src="{{ isset($imageName) ? Storage::url('public/daycare/' . $imageName) : '' }}" class="img-fluid" alt="Daycare Image">									
+								</div>
+								<div class="thumb-content">
+									<h4 style="color:black;">{{ $card->name }}</h4>
+                                    <p class="card-text">{{ $card->contact }}</p>
+                                    <p class="card-text">{{ $card->email }}</p>								
+									<div class="star-rating">
+                                        <ul class="list-inline">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $card->rating)
+                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                @else
+                                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                @endif
+                                            @endfor
+                                        </ul>
+                                    </div>
+                                                                        
+									<a href="{{ url('/details_daycare/' . $card->id . '/show') }}" class="btn btn-primary">Learn More</a>
+								</div>						
+							</div>
+						</div>
+                        @endforeach
+          
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
 			
 		</div>
 		</div>
 	</div>
 </div>
+
+    
+
+    
+ 
+
 
   <!-- /.navbar -->
 
@@ -994,5 +998,10 @@ legend {
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard2.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="../dist/js/adminlte.js"></script>
 </body>
 </html>

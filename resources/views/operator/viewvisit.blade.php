@@ -11,7 +11,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px; width: 80%;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -56,7 +56,11 @@
                                     <tr>
                                     <td>{{$row['date']}}</td>
                                     <td>{{$row['time']}}</td>
-                                    <td><a href="{{route('editvisit',$row['id'])}}">Modify</a></td>
+                                    <td><a href="{{route('editvisit',$row['id'])}}">
+                                      <button class="btn btn-primary btn-sm">
+                                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modify
+                                     </button>
+                                    </a></td>
                                     </tr>
                                 @endforeach
                                

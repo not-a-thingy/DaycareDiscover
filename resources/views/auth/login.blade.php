@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Day care</title>
+    <title>Daycare Discover</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -95,7 +95,7 @@
 
 </style>
 </head>
-<body>
+<body background="black">
 
 <!-- Sing in  Form -->
         <section class="sign-in">

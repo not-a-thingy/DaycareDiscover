@@ -7,10 +7,9 @@
 
 <!-- Main Sidebar Container -->
 @include('layouts.sidebar_operator')
-
-
+<body style= "background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;"> 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px;">
+<div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -62,4 +61,6 @@
         @endif
   </div>
 </div></div>
+</body>
+
 @stop

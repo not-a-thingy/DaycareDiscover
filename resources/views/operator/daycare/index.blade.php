@@ -11,7 +11,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px; width: 80%;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -49,8 +49,8 @@
                                     <th> Name</th>
                                     <th>Email</th>
                                     <th>Contact</th>
-                                    <th width="170px">Address</th>
-                                   
+                                    <th width="170px">Address</th>                    
+                                    <th>Landmark</th>
                                     <th>Rate</th> 
                                     <th>Verify</th>               
                                     <th>Actions</th>
@@ -65,7 +65,7 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->contact }}</td>
                                         <td width="170px">{{ $item->address }}</td>
-                                          
+                                        <td>{{ $item->landmark }}</td>
                                         <td>{{$item->rating}}</td>
                                         <td> <div class="action-buttons d-flex">
                                             <?php if($item->verify == '0'){
