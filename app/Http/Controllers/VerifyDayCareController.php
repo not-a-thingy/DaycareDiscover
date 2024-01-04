@@ -17,7 +17,7 @@ class VerifyDayCareController extends Controller
             // If not an admin, redirect to the appropriate home based on the role
             return $this->redirectToRole(auth()->user()->role);
         }
-      $data = DayInfo::orderBy('id', 'asc')->paginate(10);
+      $data = DayInfo::orderBy('id', 'asc')->get();
       return view ('admin.verify.verify', compact ('data'));
     }
 
