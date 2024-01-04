@@ -4,13 +4,13 @@
 <script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px; margin:0;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div style="margin-left: 60px" class="col-sm-6">
-          <h1 class="m-0">Profile</h1>
+        <div style="margin-left: 35px" class="col-sm-6">
+          <h1 class="m-0">Change Password</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
