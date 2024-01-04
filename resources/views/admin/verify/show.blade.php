@@ -54,7 +54,7 @@
 <h5 class="card-text">Contact: {{ $user->contact }}</h5>
 <h5 class="card-text">Address: {{ $user->address }}</h5>
 <label for="">License</label>
-<img src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="...">
+<img src="{{ asset(Storage::url($user->lisence)) }}" class="card-img-top" alt="...">
 
 <h5 class="card-text">Facility: {{ $user->landmark }}</h5>
 <h5 class="card-text">Facility: {{ $user->facilities }}</h5>
