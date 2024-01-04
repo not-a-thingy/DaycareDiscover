@@ -45,16 +45,16 @@
       <div class="card-header">
         @if (Auth::user()->role == '0')
         <span class="float-right">
-          <a class="btn btn-primary" href="{{ url('/bookvisit/' . $course->id) }}">Book a visit</a>
+          <a class="btn btn-primary" href="{{ url('/bookvisit/' . $course->id) }}"><i class="fa fa-check" aria-hidden="true"></i> Book a visit</a>
           @if($course->firstReview())
             <a href="{{ route('parent.edit_review',$course->id) }}" title="Edit Daycare" class="mr-2">
-                <button class="btn btn-primary btn-sm">
+                <button class="btn btn-primary">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Review
                 </button>
             </a>
             @else
             <a href="{{ route('parent.create_review',$course->id) }}" title="View Daycare" class="mr-2">
-                <button class="btn btn-info btn-sm">
+                <button class="btn btn-info">
                     <i class="fa fa-eye" aria-hidden="true"></i>Add Review
                 </button>
             </a>
