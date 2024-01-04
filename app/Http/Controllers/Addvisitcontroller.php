@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Addvisit;
+use App\Models\DayInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class Addvisitcontroller extends Controller
 {
     function addvisit(){
-        return view('operator/addvisit');
+        $id = Auth::id();
+        $availDaycare = DayInfo::where('id_daycare',$id)->get()->toArray();
+        return view('operator/addvisit', compact('availDaycare'));
     }
 
     function viewvisit(){
-        $visits = Addvisit::all()->toArray();
+        $uid = Auth::id();
+        $visits = Addvisit::join('daycare','visits.daycare',"=",'daycare.id')->where('daycare.id_daycare',$uid)->get()->toArray();
         return view('operator/viewvisit',compact('visits'));
     }
 
@@ -22,13 +26,17 @@ class Addvisitcontroller extends Controller
 
         $request->validate([
              'date' => 'required',
-             'time' => 'required'
+             'time' => 'required',
+             'daycare' => 'required',
          ]);
- 
-         $data['date'] = $request->date;
-         $data['time'] = $request->time;
-         $addvisit = Addvisit::create($data);
-         if(!$addvisit){
+
+         $addVisit = new Addvisit;
+         $addVisit['date'] = $request->date;
+         $addVisit['time'] = $request->time;
+         $addVisit['daycare'] = $request->daycare;
+         $addVisit->user_id = Auth::id();
+         $addVisit->save();
+         if(!$addVisit){
              return redirect(route('viewvisit'))->with('error','Please try again');
          }
          return redirect(route('viewvisit'))->with('success',"Data recorded."); 
@@ -36,7 +44,9 @@ class Addvisitcontroller extends Controller
 
     function edit($id){
         $visits = Addvisit::find($id);
-        return view('operator/editvisit',compact('visits','id'));
+        $uid = Auth::id();
+        $daycare = DayInfo::where('id_daycare',$uid)->get()->toArray();
+        return view('operator/editvisit',compact('visits','id','daycare'));
     }
 
     function update(Request $request,$id){

@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->time('time');
+            $table->integer('user_id')->unsigned();
+            $table->integer('daycare')->unsigned();
+
+            $table->foreign('daycare')->references('id')->on('daycare');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

@@ -44,6 +44,13 @@
         <label for="Visit_Time" class="form-label">Time</label>
         <input type="time" name="time" id="time" class="form-control" required><br>
 
+        <label for="Approval" class="form-label">Daycare</label>
+        <select class="form-select" name="daycare" id="daycare" aria-label="Default select example" required>
+        @foreach($availDaycare as $row1)
+        <option value="{{$row1['id']}}">{{$row1['name']}}</option>
+        @endforeach
+        </select><br>
+
       <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
    @if($message = Session::get('success'))

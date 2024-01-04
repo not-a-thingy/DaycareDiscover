@@ -11,7 +11,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -43,6 +43,7 @@
                                     <tr>
                                     <th>Date</th>
                                     <th>Time</th>
+                                    <th>Book by</th>
                                     <th>status</th>
                                     <th>Action</th>
                                     </tr>
@@ -53,6 +54,7 @@
                                     <tr>
                                     <td>{{$row['date']}}</td>
                                     <td>{{$row['time']}}</td>
+                                    <td>{{$row['name']}}</td>
                                     <td>{{$row['status']}}</td>
                                     <td><a href="{{route('approvalvisit',$row['id'])}}" class="btn btn-success">Action</a></td>
                                     </tr>
