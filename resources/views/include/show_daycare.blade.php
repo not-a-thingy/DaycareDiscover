@@ -55,6 +55,9 @@
         <h5 class="card-text">Name: {{ $course->name }}</h5>
 <h5 class="card-text">Email: {{ $course->email }}</h5>
 <h5 class="card-text">Contact: {{ $course->contact }}</h5>
+<div><label for="">License: </label></div>
+<img  style="width:600px; height:500px" src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="...">
+<p class="card-text">{{ $course->landmark }}</p>	
 <h5 class="card-text">Address: {{ $course->address }}</h5>
 <h5 class="card-text">Facility: {{ $course->facilities }}</h5>
 <h5 class="card-text">Rating: {{ $course->rating }}</h5>

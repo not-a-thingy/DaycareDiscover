@@ -918,7 +918,8 @@ $('.navbar-light .dmenu').hover(function () {
 								<div class="thumb-content">
 									<h4 style="color:black;">{{ $card->name }}</h4>
                                     <p class="card-text">{{ $card->contact }}</p>
-                                    <p class="card-text">{{ $card->email }}</p>								
+                                    <p class="card-text">{{ $card->email }}</p>	
+                                  
 									<div class="star-rating">
                                         <ul class="list-inline">
                                             @for ($i = 1; $i <= 5; $i++)
