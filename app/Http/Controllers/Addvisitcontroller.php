@@ -18,7 +18,7 @@ class Addvisitcontroller extends Controller
 
     function viewvisit(){
         $uid = Auth::id();
-        $visits = Addvisit::join('daycare','visits.daycare',"=",'daycare.id')->where('daycare.id_daycare',$uid)->get()->toArray();
+        $visits = Addvisit::join('daycare','visits.daycare',"=",'daycare.id')->where('daycare.id_daycare',$uid)->orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
         return view('operator/viewvisit',compact('visits'));
     }
 
