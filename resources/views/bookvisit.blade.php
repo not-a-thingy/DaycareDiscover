@@ -13,8 +13,8 @@
 <!-- Main Sidebar Container -->
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin:0; height: cover; width:cover; background-image: url('/img/bg.jpg'); background-size: cover; background-repeat: repeat;">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin:0; height: cover; width:cover; background-image: url('/img/bg.jpg'); background-size: cover; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container">
@@ -40,7 +40,7 @@
   </div>
 </div>
   
-  <div class="card" style="width:100%;">
+    <div class="card" style="width:100%;">
         <div class="card-body">
             <div class="container mt-3">
                 <div class="card">
@@ -145,8 +145,9 @@
                 </div>
             </div>
 
-  </div>
+    </div>
 
-  </div>
-</div></div>
+    </div>
+</div>
+</div>
 @stop
