@@ -105,6 +105,7 @@ Route::group(['middleware' => ['auth', 'role:1']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'role:2']], function () {
+    Route::post('/daycare/store', [DayCareInfoController::class, 'store'])->name('operator.daycare.store');
     Route::get('/daycare/{user}/edit', [DayCareInfoController::class, 'edit'])->name('operator.daycare.edit');
     Route::patch('/daycare/{user}/update', [DayCareInfoController::class, 'update'])->name('operator.daycare.update');
     Route::get('/addvisit', [Addvisitcontroller::class,'addvisit'])->name('addvisit');
