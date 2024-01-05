@@ -36,13 +36,13 @@
   </div>
   <div class="card-body">
       
-  <form action="{{ route('daycare.store') }}" method="post" enctype="multipart/form-data">
+  <form action="{{ route('operator.daycare.store') }}" method="post" enctype="multipart/form-data">
 
 
         {!! csrf_field() !!}
 
         <label>Images</label><br>
-<input type="file" name="img[]" id="img" class="form-control" multiple required><br>
+<input type="file" name="img" id="img" class="form-control" multiple required><br>
 
 
   <label>Name</label><br>

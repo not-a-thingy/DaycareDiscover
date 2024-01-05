@@ -91,7 +91,6 @@ class DayCareInfoController extends Controller
                 'contact' => $request->input('contact'),
                 'address' => $request->input('address'),
                 'facilities' => $request->input('facilities'),
-                'rating' => $request->input('rating'),
                 'lisence' =>  $requestData["lisence"],
                 'landmark' =>  $request->input('landmark'),
             
@@ -110,7 +109,6 @@ class DayCareInfoController extends Controller
                 'contact' => $request->input('contact'),
                 'address' => $request->input('address'),
                 'facilities' => $request->input('facilities'),
-                'rating' => $request->input('rating'),
                 'lisence' =>  $requestData["lisence"],
                 'landmark' =>  $request->input('landmark'),
             ]);
@@ -135,14 +133,13 @@ class DayCareInfoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'name' => 'required|string',
             'email' => 'required|email',
             'contact' => 'required|string',
             'address' => 'required|string',
             'facilities' => 'required|string',
-            'rating' => 'required|numeric|min:1|max:5',
-            'lisence' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'lisence' =>  'required|image|mimes:jpeg,png,jpg,gif,svg',
             'landmark' => 'required|string',
             
         ]);
@@ -152,7 +149,7 @@ class DayCareInfoController extends Controller
             $fileName = time().$request->file('img')->getClientOriginalName();
             $path = $request->file('img')->storeAs('daycare_images', $fileName, 'public');
             $requestData["img"] = 'public/'.$path;
-            
+    
             $filelicense = time().$request->file('lisence')->getClientOriginalName();
             $pathlicense = $request->file('lisence')->storeAs('license_images', $filelicense, 'public');
             $requestData["lisence"] = 'public/'.$pathlicense;
@@ -166,7 +163,6 @@ class DayCareInfoController extends Controller
             'contact' => $request->input('contact'),
             'address' => $request->input('address'),
             'facilities' => $request->input('facilities'),
-            'rating' => $request->input('rating'),
             'lisence' => $requestData['lisence'],
             'landmark' => $request->input('landmark'),
            

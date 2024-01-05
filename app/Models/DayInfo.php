@@ -22,7 +22,6 @@ class DayInfo extends Model
      'email',
      'address',
      'facilities',
-     'rating',
      'verify',
      'img',
      'lisence',
