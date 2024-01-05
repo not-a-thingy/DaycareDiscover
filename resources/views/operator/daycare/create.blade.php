@@ -16,7 +16,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Course</h1>
+          <h1 class="m-0">Add New Daycare</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
@@ -41,8 +41,9 @@
 
         {!! csrf_field() !!}
 
- <label>Image</label><br>
-<input type="file" name="img" id="img" class="form-control" required><br>
+        <label>Images</label><br>
+<input type="file" name="img[]" id="img" class="form-control" multiple required><br>
+
 
   <label>Name</label><br>
 <input type="text" name="name" id="name" class="form-control" required><br>
@@ -56,10 +57,9 @@
 <label>Address</label><br>
 <input type="text" name="address" id="address" class="form-control" required><br>
 
-<label>License</label><br>
-<input type="file"  accept="image/*" name="lisence" id="address1" class="form-control" required><br>
 
-<label>Landmark</label><br>
+
+<label>Daycare Landmark/Website</label><br>
 <input type="text" name="landmark" id="address2" class="form-control" required><br>
 
 <label>Facility</label><br>
@@ -67,9 +67,12 @@
 
 
 
-<label>Rating</label><br>
-<input type="number" name="rating" min="1" max="5" default="5" id="rating" class="form-control" required><br>
+<!--<label>Rating</label><br>
+<input type="number" name="rating" min="1" max="5" default="5" id="rating" class="form-control" required><br>-->
+<br>
 
+<label>Daycare License</label><br>
+<input type="file"  accept="image/*" name="lisence" id="address1" class="form-control" required><br>
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
   

@@ -112,7 +112,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Day Care Info</h1>
+          <h1 class="m-0">Daycare Info</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
@@ -125,7 +125,7 @@
   <!-- /.content-header -->
   <div class="container" style= "margin: left 50;">
 <div class="card">
-  <div class="card-header">Day Care View Page
+  <div class="card-header">Daycare View Page
   <span class="float-right">
                     <a class="btn btn-primary" href="{{ url('/daycare') }}">Back</a>
                 </span>

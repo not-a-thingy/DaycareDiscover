@@ -17,7 +17,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Day Care Info</h1>
+          <h1 class="m-0">Daycare Info</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
@@ -33,7 +33,7 @@
         <div class="row" style="width:100%">
             <div class="col-md-9" style="width:100%">
                 <div class="card" style="width:100%">
-                    <div class="card-header">Day Care</div>
+                    <div class="card-header">Daycare</div>
                     <div class="card-body">
                         <a href="{{ url('/daycare/create') }}" class="btn btn-success btn-sm" title="Add New Day Care">
                        
