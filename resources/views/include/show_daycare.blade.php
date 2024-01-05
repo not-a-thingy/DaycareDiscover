@@ -65,18 +65,22 @@
     </div>
   
         <div class="card-body">
-        <h5 class="card-text">Name: {{ $course->name }}</h5>
-<h5 class="card-text">Email: {{ $course->email }}</h5>
-<h5 class="card-text">Contact: {{ $course->contact }}</h5>
 
-<div><label for="License:">License: </label></div>
-<img style="width:500px; 400px;" src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="..."><br>
-<h5 class="card-text mt-4">landmark: {{ $course->landmark }}</h5>
+<img style="width:500px; 400px;" src="{{ asset(Storage::url($course->img)) }}" class="card-img-top" alt="..."><br><br>
+        <h5 class="card-text">Daycare Name: {{ $course->name }}</h5>
+<h5 class="card-text">Email: {{ $course->email }}</h5>
+<h5 class="card-text">Contact Number: {{ $course->contact }}</h5>
+
+
+<h5 class="card-text mt-4">Landmark: {{ $course->landmark }}</h5>
 
 
 <h5 class="card-text">Address: {{ $course->address }}</h5>
 <h5 class="card-text">Facility: {{ $course->facilities }}</h5>
-<h5 class="card-text">Rating: {{ $course->rating }}</h5>
+<div><label for="License:">License: </label></div>
+<img style="width:500px; 400px;" src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="..."><br>
+
+
 
 
   </div>

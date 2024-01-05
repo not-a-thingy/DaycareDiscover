@@ -144,7 +144,7 @@
 <h5 class="card-text">Contact: {{ $course->contact }}</h5>
 <h5 class="card-text">Address: {{ $course->address }}</h5>
 <h5 class="card-text">Facility: {{ $course->facilities }}</h5>
-<h5 class="card-text">Rating: {{ $course->rating }}</h5>
+
   </div> 
     </hr>
   </div>
