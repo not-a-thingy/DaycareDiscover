@@ -34,7 +34,7 @@
 <div class="card" style="width:100%;">
   <div class="card-header">Day Care View Page
   <span class="float-right">
-                    <a class="btn btn-primary" href="{{ url('/details_daycare') }}">Back</a>
+                    <a class="btn btn-primary" href="{{ url('/home') }}">Back</a>
                 </span>
   </div>
   </div>
