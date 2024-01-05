@@ -2,47 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Daycare Discover</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
- 
-  <!-- Google Font: Source S3ans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-    
-   
+  <title>Daycare Discover</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
- 
-
-  <script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
-  <style>
-body {
+<style>
+    body {
         background: #e2eaef;
         font-family: "Open Sans", sans-serif;
     }
-
-    @media screen and (max-width: 767px) {
-            /* Add styles specific to smaller screens */
-            .s01 form .inner-form {
-                margin-left: 0;
-            }
-          }
     h2 {
         color: #000;
         font-size: 26px;
@@ -662,13 +640,7 @@ legend {
   box-sizing: border-box;
 }
 
-
-/*xddcfyvgbhinjomkkibyuvtyrtrcyvguhbi*/
-
-    .social-part .fa{
-    padding-right:20px;
-    } 
-    .s01 {
+.s01 {
   min-height: 80vh;
   width: 100%;
   display: -ms-flexbox;
@@ -680,30 +652,22 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-      background: url("../public/img/24488829_xxl.jpg");
+      background: url("img/24488829_xxl.jpg");
   background-position: center center;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
-
- 
+  backdrop-filter: brightness(0.1);
+  position: relative;
+    z-index: 0;
   padding: 15px;
 }
-
-.s01 img{
-  position:absolute;
-  top:20;
-  left:0;
-}
-
 
 
 
 
 .s01 form {
   width: 100%;
-  margin-left:220px;
-  z-index:1;
-  max-width: 1090px;
+  max-width: 1290px;
 }
 
 .s01 form legend {
@@ -839,38 +803,120 @@ legend {
     font-size: 16px;
   }
 }
-    </style>
+.navbar {
+    position: relative;
+    z-index: 1;
+  }
+
+
+</style>
+<script>
+$(document).ready(function(){
+	$(".wish-icon i").click(function(){
+		$(this).toggleClass("fa-heart fa-heart-o");
+	});
+});	
+$(document).ready(function () {
+$('.navbar-light .dmenu').hover(function () {
+        $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+    }, function () {
+        $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+    });
+});
+</script>
+  </head>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed bg-light">
 
 
   <!-- Navbar -->
-  
-  <div class="s01">
-    <img src="{{ asset('img/24488829_xxl.jpg') }}" style="width:100%; height:100% z-index:-1;" alt="">
-   
-      <form>
-        <fieldset>
-          <legend style="font-size: 50px;text-align:center;">Discover the Amazing Day Care</legend>
-        </fieldset>
-        <div style="width: 80%; height: 60px; margin:auto;" class="inner-form">
-          <div class="input-field first-wrap">
-            <input id="search" type="text" placeholder="What are you looking for?" />
-          </div>
-          <div class="input-field second-wrap">
-            <input id="location" type="text" placeholder="location" />
-          </div>
-          <div class="input-field third-wrap">
-            <button class="btn-search" type="button">Search</button>
+  <nav class="navbar navbar-expand-sm   navbar-light  bg-transparent">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a style="color:black;" class="nav-link" href="#">Daycare Discover<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" href="{{ url('/users') }}">Profile</a>
+              <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+            
+            </div>
+            
+            <li class="nav-item dropdown dmenu">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Daycare</a>
+    <div class="dropdown-menu sm-menu">
+    <a href="{{ url('/daycare') }}" class="nav-link text-dark">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  Day Care Info
+                </a>
+                <a href="{{ url('addvisit') }}" class="nav-link text-dark">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  Create Schedule
+                </a>
+                <a href="{{ url('viewvisit') }}" class="nav-link text-dark">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  View Schedule
+                </a>
+                <a href="{{ url('approvevisit') }}" class="nav-link ">
+                <i class="nav-icon fa-solid fa-user"></i>
+                  Approve Visit
+                </a>
+    </div>
+</li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+       
+          </ul>
+          <div class="social-part">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
           </div>
         </div>
-      </form>
-      
-    </div>
-   
-    <br><br>
+      </nav>
 
-    <div style="margin-top: 600px; margin-left:200px" class="container-xl">
+      <div class="s01" style="background: url('{{ asset('img/24488829_xxl.jpg') }}') center center / cover no-repeat; min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; text-align: center;">
+  <form>
+    <fieldset>
+      <legend style="font-size: 50px; text-align: center;">Discover the Amazing Day Care</legend>
+    </fieldset>
+    <div style="width: 80%; height: 60px;" class="inner-form">
+      <div class="input-field first-wrap">
+        <input id="search" type="text" placeholder="What are you looking for?" />
+      </div>
+      <div class="input-field second-wrap">
+        <input id="location" type="text" placeholder="location" />
+      </div>
+      <div class="input-field third-wrap">
+        <button class="btn-search" type="button">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+    <div style="margin-top: -130px; margin-left:0px  align-items: center; justify-content: center;" class="container-xl">
 	<div class="row" >
 		<div class="col-md-10 m-auto">
 			<h2>Featured <b>Day Care</b></h2>
@@ -921,87 +967,11 @@ legend {
 	</div>
 </div>
 
-    
 
-    
- 
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-8sF1nMrh5+j1n7pUnrE6bQkYQn3RKDxmsqL7C1BuAAhMmzZt77GFW92LZ1IDaDl" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy4qDdP5S55e2Iwo0eXvm4rFb4dAAtUA" crossorigin="anonymous"></script>
 
-
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  @include('layouts.sidebar_operator')
-
-
-  <!-- BARU COMMENT -->
-  <!-- Content Wrapper. Contains page content -->
- <!-- <div class="content-wrapper">
-     Content Header (Page header) 
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div> /.col --> 
-          
-
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-              
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-    
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
- 
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../dist/js/adminlte.js"></script>
-
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="../plugins/raphael/raphael.min.js"></script>
-<script src="../plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="../plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="../plugins/chart.js/Chart.min.js"></script>
-
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard2.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <script src="../dist/js/adminlte.js"></script>
 </body>
 </html>

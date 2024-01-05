@@ -32,7 +32,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="{{ route('home') }}">Daycare Discover<span class="sr-only">(current)</span></a>
+              <a style="color:black;" class="nav-link" href="{{ route('home') }}">Daycare Disco<span class="sr-only">(current)</span></a>
             </li>
 
                     </ul>

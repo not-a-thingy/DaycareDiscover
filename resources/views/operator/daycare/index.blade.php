@@ -1,17 +1,22 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.nav_operator')
 
+<!--@extends('layouts.app')-->
+
+
+
+@section('content')
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 <script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
 
 
+
+
+    
+
 <!-- Main Sidebar Container -->
-@include('layouts.sidebar_operator')
-
-
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat; margin:0;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -28,7 +33,7 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-    <div class="container" style="margin: left 60px; width:100%">
+    <div class="container" style="margin-left 60px; width:100%">
         
         <div class="row" style="width:100%">
             <div class="col-md-9" style="width:100%">

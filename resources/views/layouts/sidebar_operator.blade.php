@@ -51,7 +51,7 @@
             <a href="#" class="nav-link text-dark">
             <i class="nav-icon fa-solid fa-key"></i>
               <p>
-                Day Care
+                Daycare
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">3</span>
               </p>
