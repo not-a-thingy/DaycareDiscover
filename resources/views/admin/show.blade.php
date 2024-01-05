@@ -39,24 +39,31 @@
             </div>
         @endif
         <div class="card">
-            <div class="card-header">User
+            <div class="card-header"> <strong> User </strong>
               
                     <span class="float-right">
                         <a class="btn btn-primary" href="{{ route('admin.index') }}">Back</a>
                     </span>
               
             </div>
+            <img src="{{ Storage::url($user->image)  }}" alt="User Image" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px; margin-top: 15px;  margin-left:20px;">
             <div class="card-body">
                 <div class="lead">
-                    <strong>Name:</strong>
+                    <strong style="font-weight: bold;">Name:</strong>
                     {{ $user->name }}
                 </div>
                 <div class="lead">
-                    <strong>Email:</strong>
+                    <strong style="font-weight: bold;">Email:</strong>
                     {{ $user->email }}
                 </div>
                 <div class="lead">
-                    <strong>Role:</strong>
+                <strong style="font-weight: bold;">Contact:</strong> {{ $user->contact }}
+            </div>
+            <div class="lead">
+                <strong style="font-weight: bold;">Address:</strong> {{ $user->address }}
+            </div>
+                <div class="lead">
+                    <strong style="font-weight: bold;">Role:</strong>
                     <?php if($user->role == 1){
                                         echo 'Admin';
                                     }else if($user->role == 2) {

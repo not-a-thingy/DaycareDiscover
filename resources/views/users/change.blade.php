@@ -1,7 +1,18 @@
 @extends('layouts.app')
 @section('content')
+
+<style>
+  .fa-eye{
+        position: absolute;
+        top: 35%;
+        right: 5%;
+        cursor: pointer;
+        color: lightgray;
+        
+    }
+  </style>
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="height: 100px; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
@@ -49,18 +60,50 @@
 
         <div style="margin-top:20px" class="form-group">
             <label for="password">New Password:</label>
-            <input type="password" name="password" class="form-control" placeholder="New Password">
+            <input type="password" id="password" name="password" class="form-control" placeholder="New Password (Minimum 8 characters)">
+            <span class="fa-regular fa-eye" id="show-password" onclick="togglePasswordVisibility()"></span>
         </div>
 
         <div style="margin-top:20px" class="form-group">
             <label for="password_confirmation">Confirm New Password:</label>
-            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm New Password">
+            <input type="password" id="password" name="password_confirmation" class="form-control" placeholder="Confirm New Password">
+             <i class="fa fa-eye" id="show-password" onclick="toggleConfirmPasswordVisibility()"></I>
         </div>
 
         <button style="margin-top:20px" type="submit" class="btn btn-primary">Update Password</button>
     </form>
 </div>
+<script src="https://kit.fontawesome.com/bc8e231302.js" crossorigin="anonymous"></script>
+<script>
+  function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = document.getElementById('show-password');
 
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    }
+    function toggleConfirmPasswordVisibility() {
+        var passwordInput = document.getElementById('password-confirm');
+        var eyeIcon = document.getElementById('show-password');
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');    
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    }
+</script>
 <br><br>
 
 @endsection
