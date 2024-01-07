@@ -1,5 +1,5 @@
 <!doctype html>
-    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <!--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">-->
     <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <meta charset="utf-8">
@@ -70,6 +70,23 @@
                 </a>
     </div>
 </li>
+<li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+       
+          </ul>
+          <div class="social-part">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </div>
+        </div>
+      </nav>
+</ul>
+</nav>                                                                                      
 
         <main class="py-4">
             @yield('content')
