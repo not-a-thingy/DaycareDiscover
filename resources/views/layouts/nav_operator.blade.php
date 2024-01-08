@@ -11,6 +11,7 @@
         <title>Daycare Discover</title>
 
         <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a style="color:black;" class="nav-link" href="#">Daycare Discover<span class="sr-only">(current)</span></a>
+              <a style="color:black;" class="nav-link" href="/admin/home">Daycare Discover<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown dmenu">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav_operator')
 @section('content')
 
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">

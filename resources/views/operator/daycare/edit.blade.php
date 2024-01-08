@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav_operator')
 @section('content')
 
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
@@ -6,10 +6,10 @@
 
 
 <!-- Main Sidebar Container -->
-@include('layouts.sidebar_operator')
+
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="height: 100px;">
+  <div class="content-wrapper" style="height: 100px; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat; margin:0;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -39,7 +39,7 @@
         @endif
 <div class="card">
   
-  <div class="card-header">Day Care Edit Page
+  <div class="card-header">Daycare Edit Page
   <span class="float-right">
                     <a class="btn btn-primary" href="{{ url('/daycare') }}">Back</a>
                 </span>
@@ -90,15 +90,7 @@
         </div>
 
         <div style="margin-top:20px" class="form-group">
-            <label for="lisence">License:</label>
-            <input type="file"  name="lisence" class="form-control" placeholder="Image">
-        </div>
-
-      
-
-
-        <div style="margin-top:20px" class="form-group">
-            <label for="address">landmark:</label>
+            <label for="address">Daycare Landmark/Website:</label>
             <input type="text" name="landmark" value="{{ old('landmark', $user->landmark) }}" class="form-control" placeholder="Landmark">
         </div>
         
@@ -110,6 +102,11 @@
         <div style="margin-top:20px" class="form-group">
             <label for="rating">Rating:</label>
             <input type="number" name="rating" value="{{ old('rating', $user->rating) }}" class="form-control" >
+        </div>
+
+        <div style="margin-top:20px" class="form-group">
+            <label for="lisence">License:</label>
+            <input type="file"  name="lisence" class="form-control" placeholder="Image">
         </div>
 
 
