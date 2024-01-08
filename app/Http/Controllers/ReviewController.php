@@ -21,7 +21,7 @@ class ReviewController extends Controller
             'daycare_id'=>$request->daycare_id,
             'review_comment'=>$request->review_comment,
         ]);
-        return redirect()->route('parent.view_daycares')->with('flash_message', 'Daycare review has been added successfully.');
+        return redirect()->route('home')->with('flash_message', 'Daycare review has been added successfully.');
     }
 
     public function update(Request $request,$id){
@@ -31,7 +31,7 @@ class ReviewController extends Controller
         'daycare_id'=>$request->daycare_id,
         'review_comment'=>$request->review_comment || '',
     ]);
-    return redirect()->route('parent.view_daycares')->with('flash_message', 'Daycare review has been updated successfully.');
+    return redirect()->route('home')->with('flash_message', 'Daycare review has been updated successfully.');
     }
 
     public function edit($daycare)
