@@ -16,3 +16,11 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.dockerignore
+.fly/entrypoint.sh
+.fly/scripts/caches.sh
+Dockerfile
+fly.toml
+fly.toml
+privkey
+privkey-cert.pub

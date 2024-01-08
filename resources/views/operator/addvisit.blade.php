@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav_operator')
 @section('content')
 
 <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
@@ -6,16 +6,14 @@
 
 
 <!-- Main Sidebar Container -->
-@include('layouts.sidebar_operator')
-<body style= "background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;"> 
+<div> 
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="height: 100px; background-image: url('img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
+  <div class="content-wrapper" style="height: 100px; margin:0; background-image: url('/img/bg.jpg'); background-size: 900px; background-repeat: repeat;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Schedule</h1>
         </div><!-- /.col -->
         <div class="col-sm-10">
           <ol class="breadcrumb float-sm-right">
