@@ -25,7 +25,7 @@ class BookVisitController extends Controller
     $books = Bookvisit::where('daycare_id', $id)->where('user_id', $user_id)->orderBy('date', 'asc')->orderBy('time', 'asc')->get()->toArray();
     $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
     // other code...
-    return view('bookvisit', compact('books', 'availDate', 'daycare'));
+    return view('parent/bookvisit', compact('books', 'availDate', 'daycare'));
 }
     
     public function availTime(Request $request)
@@ -66,7 +66,7 @@ class BookVisitController extends Controller
         $books = Bookvisit::find($id);
         
         $availDate = Addvisit::distinct()->orderBy('date', 'asc')->get('date')->toArray();
-        return view('editbook', ['id' => $id, 'daycare_id' => $daycare_id, 'daycare' => $daycare, 'books' => $books, 'availDate' => $availDate, 'bookVisit' => $bookVisit]);
+        return view('parent/editbook', ['id' => $id, 'daycare_id' => $daycare_id, 'daycare' => $daycare, 'books' => $books, 'availDate' => $availDate, 'bookVisit' => $bookVisit]);
     }
 
     function update(Request $request, $id){

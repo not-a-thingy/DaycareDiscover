@@ -51,7 +51,7 @@
                             <input type="hidden" name="daycare_id" value="{{ $daycare->id }}">
                             <div class="mb-3">
                                 <label for="VisitDate" class="form-label">Date</label>
-                                <select class="form-select" name="date" id="date" aria-label="Default select example" style="width:auto; height:auto;">
+                                <select class="form-select" name="date" id="date" aria-label="Default select example" style="width:auto; height:auto;" required>
                                     <option selected="true" disabled="disabled">Select a date</option>
                                     @foreach($availDate as $row1)
                                     <option value="{{$row1['date']}}">{{$row1['date']}}</option>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="time" class="form-label">Time</label>
-                                <select class="form-select" name="time" id="time" aria-label="Default select example" style="width:auto; height:auto;">
+                                <select class="form-select" name="time" id="time" aria-label="Default select example" style="width:auto; height:auto;" required>
                                     <option selected="true" disabled="disabled">Please select a date first</option>                           
                                     <option value="time"><div id="times"></div></option>                   
                                 </select>

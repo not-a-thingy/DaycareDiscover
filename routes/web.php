@@ -23,14 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::get('/bookvisit/{id}', [BookVisitController::class,'bookvisit'])->name('bookvisit');
-Route::post('/bookvisit', [BookVisitController::class,'bookvisitPost'])->name('bookvisit.post');
-Route::post('/availTime', [BookVisitController::class,'availTime'])->name('availTime');
-Route::get('/editbook/{id}/{daycare_id}', [BookVisitController::class,'edit'])->name('editbook');
-Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
-Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');
 Route::post('/comments', [CommentsController::class, 'store']);
 Route::get('/comments', [CommentsController::class, 'index']);
 
@@ -54,9 +46,6 @@ Route::get('/details_daycare/{user}/show', [ViewDayCareController::class, 'show'
 
 
 // web.php
-
-
-
 
 
 Route::group(['middleware' => ['auth']], function() {
@@ -88,7 +77,12 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::delete('/parent/delete_rview/{review}', [App\Http\Controllers\ReviewController::class, 'delete'])->name('parent.delete_review');
 
-  
+    Route::get('/bookvisit/{id}', [BookVisitController::class,'bookvisit'])->name('bookvisit');
+    Route::post('/bookvisit', [BookVisitController::class,'bookvisitPost'])->name('bookvisit.post');
+    Route::post('/availTime', [BookVisitController::class,'availTime'])->name('availTime');
+    Route::get('/editbook/{id}/{daycare_id}', [BookVisitController::class,'edit'])->name('editbook');
+    Route::put('/updatebook/{id}', [BookVisitController::class,'update'])->name('updatebook');
+    Route::post('/cancelbook/{id}', [BookVisitController::class,'cancel'])->name('cancelbook');  
 });
 Route::group(['middleware' => ['auth', 'role:1']], function () {
     Route::get('/admin/verify/daycares', [VerifyDayCareController::class, 'index'])->name('admin.verify.verify');
