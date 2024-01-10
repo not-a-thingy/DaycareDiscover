@@ -46,19 +46,11 @@
         @if (Auth::user()->role == '0')
         <span class="float-right">
           <a class="btn btn-primary" href="{{ url('/bookvisit/' . $course->id) }}"><i class="fa fa-check" aria-hidden="true"></i> Book a visit</a>
-          @if($course->firstReview())
-            <a href="{{ route('parent.edit_review',$course->id) }}" title="Edit Daycare" class="mr-2">
-                <button class="btn btn-success">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Review
-                </button>
-            </a>
-            @else
             <a href="{{ route('parent.create_review',$course->id) }}" title="View Daycare" class="mr-2">
                 <button class="btn btn-info">
                     <i class="fa fa-eye" aria-hidden="true"></i>Add Review
                 </button>
             </a>
-            @endif
         </span>
         @endif
       </div>
@@ -80,12 +72,17 @@
 <div><label for="License:">License: </label></div>
 <img style="width:500px; 400px;" src="{{ asset(Storage::url($course->lisence)) }}" class="card-img-top" alt="..."><br>
 
-
-
-
+<div class="mt-4">
+  <h3 class="card-text">reviews</h3>
+@foreach($review as $row)
+  <h5>{{ $row['review_comment'] }}</h5>
+  @endforeach
+</div>
   </div>
   
   </div>
+
+ 
 </div>
 </div>
 @stop

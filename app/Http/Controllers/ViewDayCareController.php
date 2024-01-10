@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DayInfo;
+use App\Models\Review;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Sortable;
@@ -23,7 +24,8 @@ class ViewDayCareController extends Controller
   public function show($id)
   {
     $course = DayInfo::find($id);
-    return view('include.show_daycare')->with('course', $course);
+    $review = Review::where('daycare_id',$id)->get()->toArray();
+    return view('include.show_daycare', compact('course','review'));
   }
 
   public function indexByParent(): View
