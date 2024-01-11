@@ -16,6 +16,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function () {
+      $('.navbar-light .dmenu').hover(function () {
+        $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+      }, function () {
+        $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+      });
+    });
+  </script>
 <style>
     body {
         background: #e2eaef;
@@ -833,9 +842,7 @@ $('.navbar-light .dmenu').hover(function () {
             <li class="nav-item">
               <a style="color:black;" class="nav-link" href="#">Daycare Discover<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
+            
             <li class="nav-item dropdown dmenu">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
             {{ Auth::user()->name }}
@@ -858,12 +865,8 @@ $('.navbar-light .dmenu').hover(function () {
             
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-          </li>
+          
+          
        
           </ul>
           <div class="social-part">
@@ -879,7 +882,7 @@ $('.navbar-light .dmenu').hover(function () {
     <div class="s01">
       <form>
         <fieldset>
-          <legend style="font-size: 50px;text-align:center;">Discover the Amazing Day Care</legend>
+          <legend style="font-size: 50px;text-align:center;">Discover the Amazing Dayc  are</legend>
         </fieldset>
         <div style="width: 80%; height: 60px; margin:auto;" class="inner-form">
           <div class="input-field first-wrap">
@@ -900,7 +903,7 @@ $('.navbar-light .dmenu').hover(function () {
  <div style="margin-top: 450px;" class="container-xl">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Featured <b>Day Care</b></h2>
+			<h2>Featured <b>Daycare</b></h2>
 			<div id="myCarousel" style="padding:0;" class="carousel slide" data-ride="carousel" data-interval="0">
 			<!-- Carousel indicators -->
 		
